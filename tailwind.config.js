@@ -19,7 +19,7 @@ module.exports = {
         light3: '#7E88C3',
         dark3: '#0C0E16',
         accent: '#EC5757',
-        accent2: '#9277FF',
+        accent2: '#FF9797',
         lightBg: '#F8F8FB',
         darkBg: '#141625',
       },

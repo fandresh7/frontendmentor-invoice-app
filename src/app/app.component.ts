@@ -2,12 +2,12 @@ import { Component } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterOutlet } from '@angular/router'
 import { DarkModeService } from './shared/darkMode/services/dark-mode.service'
-import { SetModeClassDirective } from './shared/darkMode/directives/set-mode-class.directive'
+import { Button2Component } from './components/buttons/button2/button2.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SetModeClassDirective],
+  imports: [CommonModule, RouterOutlet, Button2Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

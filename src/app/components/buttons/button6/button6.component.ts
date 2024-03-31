@@ -1,9 +1,10 @@
 import { Component } from '@angular/core'
+import { plusIconComponent } from '../../../shared/components/icons.component'
 
 @Component({
   selector: 'app-button6',
   standalone: true,
-  imports: [],
+  imports: [plusIconComponent],
   templateUrl: './button6.component.html',
   styleUrl: './button6.component.css'
 })
