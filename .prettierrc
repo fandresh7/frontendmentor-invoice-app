@@ -7,7 +7,7 @@
   "arrowParens": "avoid",
   "trailingComma": "none",
   "bracketSameLine": true,
-  "printWidth": 160,
+  "printWidth": 220,
   "endOfLine":"auto",
   "singleAttributePerLine": true,
   "overrides": [
