@@ -1,1 +1,9 @@
-<p>button works!</p>
+<button
+  class="text-light3"
+  (click)="changeDarkMode()">
+  @if (isDarkMode$ | async; as isDarkMode) {
+    <app-sun-icon></app-sun-icon>
+  } @else {
+    <app-moon-icon></app-moon-icon>
+  }
+</button>

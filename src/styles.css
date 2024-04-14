@@ -1,3 +1,5 @@
+@import "@angular/cdk/overlay-prebuilt.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,4 +22,8 @@
 
 .body-variant {
   @apply font-medium text-[13px] leading-[15px] tracking-tight
+}
+
+input, select {
+  @apply heading-s outline-primary outline-1 focus-visible:outline bg-white dark:bg-dark1 text-dark3 dark:text-white p-4 border-light1 dark:border-dark2 border-[1px] border-solid rounded-md h-12
 }

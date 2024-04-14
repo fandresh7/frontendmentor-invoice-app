@@ -16,7 +16,7 @@ import { Component } from '@angular/core'
 export class plusIconComponent {}
 
 @Component({
-  selector: 'app-plus-icon2',
+  selector: 'app-sun-icon',
   standalone: true,
   template: `<svg
     width="20"
@@ -31,7 +31,7 @@ export class plusIconComponent {}
 export class SunIconComponent {}
 
 @Component({
-  selector: 'app-plus-icon2',
+  selector: 'app-moon-icon',
   standalone: true,
   template: `<svg
     width="20"
@@ -46,7 +46,7 @@ export class SunIconComponent {}
 export class MoonIconComponent {}
 
 @Component({
-  selector: 'app-plus-icon2',
+  selector: 'app-delete-icon',
   standalone: true,
   template: `<svg
     width="13"
@@ -61,7 +61,7 @@ export class MoonIconComponent {}
 export class DeleteIconComponent {}
 
 @Component({
-  selector: 'app-plus-icon2',
+  selector: 'app-check-icon',
   standalone: true,
   template: `<svg
     width="10"
@@ -78,7 +78,7 @@ export class DeleteIconComponent {}
 export class CheckIconComponent {}
 
 @Component({
-  selector: 'app-plus-icon2',
+  selector: 'app-calendar-icon',
   standalone: true,
   template: `<svg
     width="16"
@@ -94,7 +94,7 @@ export class CheckIconComponent {}
 export class CalendarIconComponent {}
 
 @Component({
-  selector: 'app-plus-icon2',
+  selector: 'app-left-arrow-icon',
   standalone: true,
   template: `<svg
     width="7"
@@ -102,7 +102,7 @@ export class CalendarIconComponent {}
     xmlns="http://www.w3.org/2000/svg">
     <path
       d="M6.342.886L2.114 5.114l4.228 4.228"
-      stroke="#9277FF"
+      stroke="currentColor"
       stroke-width="2"
       fill="none"
       fill-rule="evenodd" />
@@ -111,7 +111,7 @@ export class CalendarIconComponent {}
 export class ArrowLeftIconComponent {}
 
 @Component({
-  selector: 'app-plus-icon2',
+  selector: 'app-right-arrow-icon',
   standalone: true,
   template: `<svg
     width="7"
@@ -119,10 +119,27 @@ export class ArrowLeftIconComponent {}
     xmlns="http://www.w3.org/2000/svg">
     <path
       d="M1 1l4 4-4 4"
-      stroke="#7C5DFA"
+      stroke="currentColor"
       stroke-width="2"
       fill="none"
       fill-rule="evenodd" />
   </svg>`
 })
 export class ArrowRightIconComponent {}
+
+@Component({
+  selector: 'app-down-arrow-icon',
+  standalone: true,
+  template: `<svg
+    width="11"
+    height="7"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M1 1l4.228 4.228L9.456 1"
+      stroke="currentColor"
+      stroke-width="2"
+      fill="none"
+      fill-rule="evenodd" />
+  </svg>`
+})
+export class ArrowDownIconComponent {}

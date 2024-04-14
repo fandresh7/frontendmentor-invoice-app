@@ -1,0 +1,32 @@
+<div class="flex flex-col gap-2 items-start">
+  <label
+    class="body-variant block text-light3"
+    for="">
+    Street Address
+  </label>
+  <div class="relative text-primary">
+    <input
+      cdkOverlayOrigin
+      #origin="cdkOverlayOrigin"
+      name="" />
+
+    <app-down-arrow-icon class="absolute top-1/2 -translate-y-1/2 right-4"></app-down-arrow-icon>
+  </div>
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="origin"
+  [cdkConnectedOverlayOpen]="isOpen"
+  [cdkConnectedOverlayMinWidth]="230"
+  [cdkConnectedOverlayOffsetY]="24"
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="backdrop-dropdown"
+  (backdropClick)="close()"
+  (detach)="close()">
+  <div class="panel z-10 bg-white w-full flex flex-col rounded-xl text-dark3 dark:bg-dark2 dark:text-light1">
+    @for (item of data; track item) {
+      <p class="heading-s py-4 cursor-pointer px-6 border-light1 dark:border-dark1 hover:text-primary transition-colors duration-300">{{ item }}</p>
+    }
+  </div>
+</ng-template>

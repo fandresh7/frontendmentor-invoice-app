@@ -1,0 +1,50 @@
+calendar-date {
+  &::part(container) {
+    box-shadow: 0 10px 20px rgba(72,84,159,.25);
+    border-radius: 9px;
+    padding: 1rem 1rem 0.5rem;
+  }
+
+  &::part(header) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  &::part(heading) {
+    font-size: 1rem;
+  }
+
+  &::part(button) {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+calendar-month {
+  --color-accent: transparent;
+  --color-text-on-accent: #7C5DFA;
+
+  &::part(head) {
+    display: none;
+  }
+
+  &::part(heading) {
+    text-transform: capitalize;
+  }
+
+  &::part(day) {
+    block-size: 1.7rem;
+    inline-size: 1.7rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+
+  &::part(day):hover, &::part(selected) {
+    background: transparent;
+    color: #7C5DFA;
+  }
+  
+  &::part(outside) {
+    color: #DFE3FA;
+  }
+}
