@@ -1,0 +1,14 @@
+<form
+  class="flex flex-col gap-2 w-full"
+  autocomplete="off"
+  [formGroup]="form"
+  (ngSubmit)="submit(form)">
+  @for (control of controls; track control.name) {
+    <ng-container
+      [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
+      [ngComponentOutletInjector]="control.name | controlInjector: control">
+    </ng-container>
+  }
+
+  <app-button2 type="submit">Save Changes</app-button2>
+</form>

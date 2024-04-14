@@ -1,18 +1,18 @@
 import { Component, HostListener } from '@angular/core'
 import { OverlayModule } from '@angular/cdk/overlay'
 import { ArrowDownIconComponent } from '../../../components/icons.component'
+import { BaseControlComponent, controlProvider, sharedControlDeps } from '../base-control/base-control.component'
 
 @Component({
   selector: 'app-select-field',
   standalone: true,
-  imports: [OverlayModule, ArrowDownIconComponent],
+  imports: [OverlayModule, ArrowDownIconComponent, ...sharedControlDeps],
+  viewProviders: [controlProvider],
   templateUrl: './select-field.component.html',
   styleUrl: './select-field.component.css'
 })
-export class SelectFieldComponent {
+export class SelectFieldComponent extends BaseControlComponent {
   isOpen = false
-
-  data = ['Net 1 Day', 'Net 7 Days', 'Net 14 Days', 'Net 30 Days']
 
   @HostListener('click') open() {
     this.isOpen = true
@@ -20,5 +20,10 @@ export class SelectFieldComponent {
 
   close() {
     this.isOpen = false
+  }
+
+  setControlValue(value: unknown) {
+    this.formControl.setValue(value)
+    this.close()
   }
 }

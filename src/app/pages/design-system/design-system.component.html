@@ -1,14 +1,6 @@
 <div class="flex flex-wrap gap-10 p-10">
-  <app-button1></app-button1>
-  <app-button2></app-button2>
-  <app-button3></app-button3>
-  <app-button4></app-button4>
-  <app-button5></app-button5>
-  <app-button6></app-button6>
-</div>
-
-<div class="mt-10 flex flex-row justify-stretch gap-10 p-10">
-  <app-input-field></app-input-field>
-  <app-select-field></app-select-field>
-  <app-calendar-field></app-calendar-field>
+  <app-form
+    [form]="form"
+    [controls]="controls">
+  </app-form>
 </div>

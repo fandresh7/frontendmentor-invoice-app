@@ -1,17 +1,22 @@
-<div class="flex flex-col gap-2 items-start">
-  <label
-    class="body-variant block text-light3"
-    for="">
-    Street Address
-  </label>
-  <div class="relative text-primary">
-    <input
-      cdkOverlayOrigin
-      #origin="cdkOverlayOrigin"
-      name="" />
+<label
+  class="body-variant block text-light3"
+  [for]="control.control.name">
+  {{ control.control.label }}
+</label>
 
-    <app-down-arrow-icon class="absolute top-1/2 -translate-y-1/2 right-4"></app-down-arrow-icon>
-  </div>
+<div
+  class="control-box relative w-full h-[3em] cursor-pointer"
+  cdkOverlayOrigin
+  #origin="cdkOverlayOrigin">
+  <input
+    class="hidden"
+    [type]="control.control.value"
+    [formControlName]="control.control.name"
+    [checked]="control.control.value"
+    type="text"
+    [id]="control.control.name" />
+  {{ formControl.value }}
+  <app-down-arrow-icon class="absolute top-1/2 -translate-y-1/2 right-4 text-primary"></app-down-arrow-icon>
 </div>
 
 <ng-template
@@ -25,8 +30,12 @@
   (backdropClick)="close()"
   (detach)="close()">
   <div class="panel z-10 bg-white w-full flex flex-col rounded-xl text-dark3 dark:bg-dark2 dark:text-light1">
-    @for (item of data; track item) {
-      <p class="heading-s py-4 cursor-pointer px-6 border-light1 dark:border-dark1 hover:text-primary transition-colors duration-300">{{ item }}</p>
+    @for (option of control.control.options; track option) {
+      <p
+        class="heading-s py-4 cursor-pointer px-6 border-light1 dark:border-dark1 hover:text-primary transition-colors duration-300"
+        (click)="setControlValue(option.value)">
+        {{ option.label }}
+      </p>
     }
   </div>
 </ng-template>

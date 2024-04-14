@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterOutlet } from '@angular/router'
 import { DarkModeService } from './shared/darkMode/services/dark-mode.service'
-import { Button2Component } from './components/buttons/button2/button2.component'
+import { Button2Component } from './shared/components/buttons/button2/button2.component'
 import { ButtonComponent } from './shared/darkMode/components/button/button.component'
 
 @Component({

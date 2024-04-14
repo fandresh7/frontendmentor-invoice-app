@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { plusIconComponent } from '../../../shared/components/icons.component'
+import { plusIconComponent } from '../../icons.component'
 
 @Component({
   selector: 'app-button6',

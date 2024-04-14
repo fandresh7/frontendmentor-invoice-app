@@ -3,15 +3,17 @@ import { OverlayModule } from '@angular/cdk/overlay'
 
 import { CalendarIconComponent } from '../../../components/icons.component'
 import { CalendarComponent } from '../../../components/calendar/calendar.component'
+import { BaseControlComponent, controlProvider, sharedControlDeps } from '../base-control/base-control.component'
 
 @Component({
   selector: 'app-calendar-field',
   standalone: true,
-  imports: [OverlayModule, CalendarComponent, CalendarIconComponent],
+  imports: [OverlayModule, CalendarComponent, CalendarIconComponent, sharedControlDeps],
+  viewProviders: [controlProvider],
   templateUrl: './calendar-field.component.html',
   styleUrl: './calendar-field.component.css'
 })
-export class CalendarFieldComponent {
+export class CalendarFieldComponent extends BaseControlComponent {
   isOpen = false
 
   @HostListener('click') open() {
@@ -23,7 +25,7 @@ export class CalendarFieldComponent {
   }
 
   setDate(event: string) {
-    console.log(event)
+    this.formControl.setValue(event)
     this.close()
   }
 }

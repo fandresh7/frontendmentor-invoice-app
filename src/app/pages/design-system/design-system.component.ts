@@ -1,20 +1,66 @@
 import { Component } from '@angular/core'
-import { Button1Component } from '../../components/buttons/button1/button1.component'
-import { Button2Component } from '../../components/buttons/button2/button2.component'
-import { Button3Component } from '../../components/buttons/button3/button3.component'
-import { Button4Component } from '../../components/buttons/button4/button4.component'
-import { Button5Component } from '../../components/buttons/button5/button5.component'
-import { Button6Component } from '../../components/buttons/button6/button6.component'
-import { InputFieldComponent } from '../../shared/forms/components/input-field/input-field.component'
-import { SelectFieldComponent } from '../../shared/forms/components/select-field/select-field.component'
-import { CalendarFieldComponent } from '../../shared/forms/components/calendar-field/calendar-field.component'
-import { CalendarComponent } from '../../shared/components/calendar/calendar.component'
+import { FormComponent } from '../../shared/forms/form.component'
+import { Control } from '../../shared/forms/models/forms.model'
+import { FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-design-system',
   standalone: true,
-  imports: [Button1Component, Button2Component, Button3Component, Button4Component, Button5Component, Button6Component, InputFieldComponent, SelectFieldComponent, CalendarFieldComponent, CalendarComponent],
+  imports: [FormComponent],
   templateUrl: './design-system.component.html',
   styleUrl: './design-system.component.css'
 })
-export class DesignSystemComponent {}
+export class DesignSystemComponent {
+  form: FormGroup = new FormGroup({})
+
+  controls: Control[] = [
+    {
+      label: 'Street Address',
+      name: 'street-address',
+      controlType: 'input',
+      type: 'text',
+      order: 1
+    },
+    {
+      label: 'City',
+      name: 'ciry',
+      controlType: 'input',
+      type: 'text',
+      order: 2
+    },
+    {
+      label: 'Post Code',
+      name: 'post-code',
+      controlType: 'input',
+      type: 'text',
+      order: 1
+    },
+    {
+      label: 'Country',
+      name: 'country',
+      controlType: 'input',
+      type: 'text',
+      order: 3
+    },
+    {
+      label: 'Invoice Date',
+      name: 'invoce-date',
+      controlType: 'calendar',
+      order: 4,
+      disabled: true
+    },
+    {
+      label: 'Payment Terms',
+      name: 'payment-terms',
+      controlType: 'select',
+      options: [
+        { label: 'Net 1 Day', value: 'next-1-day' },
+        { label: 'Net 7 Days', value: 'next-7-day' },
+        { label: 'Net 14 Days', value: 'next-14-day' },
+        { label: 'Net 30 Days', value: 'next-30-day' }
+      ],
+      order: 5,
+      disabled: true
+    }
+  ]
+}
