@@ -13,7 +13,7 @@ export const controlProvider: StaticProvider = {
 
 @Directive()
 export class BaseControlComponent implements OnInit, OnDestroy {
-  @HostBinding('class') hostClass = 'flex flex-col gap-2'
+  @HostBinding('class') hostClass = ''
 
   control = inject(CONTROL_DATA)
 
@@ -27,6 +27,7 @@ export class BaseControlComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.parentFormGroup.addControl(this.control.control.name, this.formControl)
+    this.hostClass = `wrapper-${this.control.control.name}`
   }
 
   ngOnDestroy() {

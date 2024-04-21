@@ -1,0 +1,92 @@
+.invoce-form {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Bills From */
+
+.bills_from {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 12;
+}
+
+:host ::ng-deep .wrapper-street-address {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 12;
+}
+
+:host ::ng-deep .wrapper-city, .wrapper-post-code, .wrapper-country {
+  grid-row: 3 / span 1;
+}
+
+:host ::ng-deep .wrapper-city {
+  grid-column: 1 / span 4;
+}
+
+:host ::ng-deep .wrapper-post-code {
+  grid-column: 5 / span 4;
+}
+
+:host ::ng-deep .wrapper-country {
+  grid-column: 9 / span 4;
+}
+
+/* Bills To */
+
+.bills_to {
+  grid-row: 4 / span 1;
+  grid-column: 1 / span 12;
+}
+
+:host ::ng-deep .wrapper-client-name {
+  grid-row: 5 / span 1;
+  grid-column: 1 / span 12;
+}
+
+:host ::ng-deep .wrapper-client-email {
+  grid-row: 6 / span 1;
+  grid-column: 1 / span 12;
+}
+
+:host ::ng-deep .wrapper-client-street-address {
+  grid-row: 7 / span 1;
+  grid-column: 1 / span 12;
+}
+
+:host ::ng-deep .wrapper-client-city, .wrapper-client-post-code, .wrapper-client-country {
+  grid-row: 8 / span 1;
+}
+
+:host ::ng-deep .wrapper-client-city {
+  grid-column: 1 / span 4;
+}
+
+:host ::ng-deep .wrapper-client-post-code {
+  grid-column: 5 / span 4;
+}
+
+:host ::ng-deep .wrapper-client-country {
+  grid-column: 9 / span 4;
+}
+
+:host ::ng-deep .wrapper-invoce-date {
+  grid-row: 9 / span 1;
+  grid-column: 1 / span 6;
+}
+
+:host ::ng-deep .wrapper-payment-terms {
+  grid-row: 9 / span 1;
+  grid-column: 7 / span 6;
+}
+
+:host ::ng-deep .wrapper-project-description {
+  grid-row: 10 / span 1;
+  grid-column: 1 / span 12;
+}
+
+.buttons {
+  grid-column: 1 / span 12;
+}

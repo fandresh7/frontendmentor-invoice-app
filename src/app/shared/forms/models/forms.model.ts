@@ -26,6 +26,7 @@ export interface Control {
   filterOptions?: boolean
   disabled?: boolean
   options?: Option[]
+  customClass?: string
   order: number
   validators?: {
     [key in ValidatorsKeys]?: unknown
