@@ -17,7 +17,7 @@ export class BaseControlComponent implements OnInit, OnDestroy {
 
   control = inject(CONTROL_DATA)
 
-  formControl: AbstractControl = new FormControl(this.control.control.value)
+  formControl: AbstractControl = new FormControl(this.control.control.value, this.resolveValidators(this.control.control))
 
   private parentGroupDir = inject(ControlContainer)
 
@@ -26,7 +26,12 @@ export class BaseControlComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.parentFormGroup.addControl(this.control.control.name, this.formControl)
+    if (this.control.formGroup) {
+      this.control.formGroup.addControl(this.control.control.name, this.formControl)
+    } else {
+      this.parentFormGroup.addControl(this.control.control.name, this.formControl)
+    }
+
     this.hostClass = `wrapper-${this.control.control.name}`
   }
 

@@ -8,7 +8,7 @@ import { BaseControlComponent, controlProvider, sharedControlDeps } from '../bas
 @Component({
   selector: 'app-calendar-field',
   standalone: true,
-  imports: [OverlayModule, CalendarComponent, CalendarIconComponent, sharedControlDeps],
+  imports: [OverlayModule, CalendarComponent, CalendarIconComponent, ...sharedControlDeps],
   viewProviders: [controlProvider],
   templateUrl: './calendar-field.component.html',
   styleUrl: './calendar-field.component.css'

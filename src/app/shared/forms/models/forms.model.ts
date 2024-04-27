@@ -5,6 +5,16 @@ export interface Form {
   dependencies?: Dependencies
 }
 
+export type ControlType = 'input' | 'select' | 'calendar' | 'group' | 'items'
+
+export enum ControlTypeValues {
+  INPUT = 'input',
+  SELECT = 'select',
+  CALENDAR = 'calendar',
+  ITEMS = 'items',
+  GROUP = 'group'
+}
+
 export interface Option {
   label: string
   value: unknown
@@ -19,7 +29,7 @@ type ValidatorsKeys = keyof Omit<typeof Validators & CustomValidators, 'prototyp
 export interface Control {
   label: string
   name: string
-  controlType: string
+  controlType: ControlType
   helpText?: string
   type?: string
   value?: unknown
@@ -27,6 +37,8 @@ export interface Control {
   disabled?: boolean
   options?: Option[]
   customClass?: string
+  group?: Control[]
+  controls?: Control[]
   order: number
   validators?: {
     [key in ValidatorsKeys]?: unknown

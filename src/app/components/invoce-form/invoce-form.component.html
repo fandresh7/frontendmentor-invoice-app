@@ -4,6 +4,7 @@
   [formGroup]="form"
   (ngSubmit)="submit(form)">
   <h1 class="bills_from font-bold text-primary">Bills From</h1>
+
   @for (control of billsFrom; track control.name) {
     <ng-container
       [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
@@ -19,8 +20,17 @@
     </ng-container>
   }
 
+  @for (control of itemList; track control.name) {
+    <ng-container
+      [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
+      [ngComponentOutletInjector]="control.name | controlInjector: control">
+    </ng-container>
+  }
+
   <div class="buttons flex flex-row gap-4 justify-end">
     <app-button3>Cancel</app-button3>
     <app-button2 type="submit">Save Changes</app-button2>
   </div>
+
+  <p style="grid-column: 1 / span 12">{{ form.value | json }}</p>
 </form>

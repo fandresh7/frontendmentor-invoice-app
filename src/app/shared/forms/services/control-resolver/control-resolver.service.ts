@@ -13,7 +13,9 @@ export class ControlResolver {
   private lazyControlComponents: ControlMap = {
     input: () => import('../../components/input-field/input-field.component').then(c => c.InputFieldComponent),
     calendar: () => import('../../components/calendar-field/calendar-field.component').then(c => c.CalendarFieldComponent),
-    select: () => import('../../components/select-field/select-field.component').then(c => c.SelectFieldComponent)
+    select: () => import('../../components/select-field/select-field.component').then(c => c.SelectFieldComponent),
+    items: () => import('../../components/items-field/items-field.component').then(c => c.ItemsFieldComponent),
+    group: () => import('../../components/group-field/group-field.component').then(c => c.GroupFieldComponent)
   }
 
   private loadedControlComponents = new Map<string, Type<unknown>>()

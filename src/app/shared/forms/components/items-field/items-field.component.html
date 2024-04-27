@@ -1,0 +1,21 @@
+<fieldset [formArrayName]="control.control.name">
+  <legend>{{ control.control.label }}</legend>
+  @for (group of formControl.controls; track group; let index = $index) {
+    <div
+      class="grid gap-4"
+      [formGroupName]="index">
+      @for (control of control.control.controls; track control.name) {
+        <ng-container
+          [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
+          [ngComponentOutletInjector]="control.name | controlInjector: control : group : index">
+        </ng-container>
+      }
+    </div>
+  }
+</fieldset>
+
+<button
+  type="button"
+  (click)="addGroup()">
+  ADD
+</button>

@@ -1,6 +1,6 @@
 <label
   class="body-variant block text-light3"
-  [for]="control.control.name">
+  [for]="control.control.name + (control.index ?? '')">
   {{ control.control.label }}
 </label>
 
@@ -14,7 +14,7 @@
     [formControlName]="control.control.name"
     [checked]="control.control.value"
     type="text"
-    [id]="control.control.name" />
+    [id]="control.control.name + (control.index ?? '')" />
   {{ formControl.value }}
   <app-down-arrow-icon class="absolute top-1/2 -translate-y-1/2 right-4 text-primary"></app-down-arrow-icon>
 </div>

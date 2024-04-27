@@ -1,6 +1,6 @@
 <label
   class="body-variant block text-light3"
-  [for]="control.control.name">
+  [for]="control.control.name + (control.index ?? '')">
   {{ control.control.label }}
 </label>
 <input
@@ -8,4 +8,4 @@
   [type]="control.control.value"
   [formControlName]="control.control.name"
   [checked]="control.control.value"
-  [id]="control.control.name" />
+  [id]="control.control.name + (control.index ?? '')" />

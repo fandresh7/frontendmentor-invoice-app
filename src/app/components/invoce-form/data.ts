@@ -101,4 +101,71 @@ export const billToControls: Control[] = [
   }
 ]
 
-export const itemListControls: Control[] = []
+export const itemListControls: Control[] = [
+  {
+    label: 'Social Profiles',
+    name: 'social-profiles',
+    controlType: 'group',
+    order: 1,
+    controls: [
+      {
+        label: 'Youtube',
+        name: 'youtube',
+        controlType: 'input',
+        type: 'text',
+        order: 1
+      },
+      {
+        label: 'Twitter',
+        name: 'twitter',
+        controlType: 'input',
+        type: 'text',
+        order: 2
+      },
+      {
+        label: 'Facebook',
+        name: 'facebook',
+        controlType: 'input',
+        type: 'text',
+        order: 3
+      }
+    ]
+  },
+  {
+    label: 'Items List',
+    name: 'list',
+    controlType: 'items',
+    controls: [
+      {
+        label: 'Item Name',
+        name: 'name',
+        controlType: 'input',
+        value: 'test',
+        type: 'text',
+        order: 1
+      },
+      {
+        label: 'Qty.',
+        name: 'quantity',
+        controlType: 'input',
+        type: 'number',
+        order: 2
+      }
+      // {
+      //   label: 'price',
+      //   name: 'item-price',
+      //   controlType: 'input',
+      //   type: 'number',
+      //   order: 3
+      // },
+      // {
+      //   label: 'Total',
+      //   name: 'item-total',
+      //   controlType: 'input',
+      //   type: 'number',
+      //   order: 4
+      // }
+    ],
+    order: 1
+  }
+]
