@@ -15,7 +15,10 @@ export class ControlResolver {
     calendar: () => import('../../components/calendar-field/calendar-field.component').then(c => c.CalendarFieldComponent),
     select: () => import('../../components/select-field/select-field.component').then(c => c.SelectFieldComponent),
     items: () => import('../../components/items-field/items-field.component').then(c => c.ItemsFieldComponent),
-    group: () => import('../../components/group-field/group-field.component').then(c => c.GroupFieldComponent)
+    group: () => import('../../components/group-field/group-field.component').then(c => c.GroupFieldComponent),
+    radio: () => import('../../components/radio-field/radio-field.component').then(c => c.RadioFieldComponent),
+    checkbox: () => import('../../components/checkbox-field/checkbox-field.component').then(c => c.CheckboxFieldComponent),
+    'checkbox-group': () => import('../../components/checkbox-group-field/checkbox-group-field.component').then(c => c.CheckboxGroupFieldComponent)
   }
 
   private loadedControlComponents = new Map<string, Type<unknown>>()

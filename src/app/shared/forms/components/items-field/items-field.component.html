@@ -2,7 +2,7 @@
   <legend>{{ control.control.label }}</legend>
   @for (group of formControl.controls; track group; let index = $index) {
     <div
-      class="grid gap-4"
+      class="flex flex-row gap-1 items-center"
       [formGroupName]="index">
       @for (control of control.control.controls; track control.name) {
         <ng-container
@@ -10,6 +10,11 @@
           [ngComponentOutletInjector]="control.name | controlInjector: control : group : index">
         </ng-container>
       }
+      <button
+        class="text-light2 mt-4"
+        (click)="removeGroup(index)">
+        <app-delete-icon></app-delete-icon>
+      </button>
     </div>
   }
 </fieldset>

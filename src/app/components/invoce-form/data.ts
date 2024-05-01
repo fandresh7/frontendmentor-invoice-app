@@ -132,8 +132,8 @@ export const itemListControls: Control[] = [
     ]
   },
   {
-    label: 'Items List',
-    name: 'list',
+    label: '',
+    name: 'product-list',
     controlType: 'items',
     controls: [
       {
@@ -150,21 +150,21 @@ export const itemListControls: Control[] = [
         controlType: 'input',
         type: 'number',
         order: 2
+      },
+      {
+        label: 'price',
+        name: 'item-price',
+        controlType: 'input',
+        type: 'number',
+        order: 3
+      },
+      {
+        label: 'Total',
+        name: 'item-total',
+        controlType: 'input',
+        type: 'number',
+        order: 4
       }
-      // {
-      //   label: 'price',
-      //   name: 'item-price',
-      //   controlType: 'input',
-      //   type: 'number',
-      //   order: 3
-      // },
-      // {
-      //   label: 'Total',
-      //   name: 'item-total',
-      //   controlType: 'input',
-      //   type: 'number',
-      //   order: 4
-      // }
     ],
     order: 1
   }

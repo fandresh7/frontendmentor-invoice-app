@@ -1,0 +1,23 @@
+<label
+  class="body-variant block text-light3"
+  for="">
+  {{ control.control.label }}
+</label>
+
+<div
+  class="flex flex-col gap-1 text-dark1 dark:text-light1"
+  [formArrayName]="control.control.name">
+  @for (option of control.control.options; track option.value; let index = $index) {
+    <div class="flex flex-row gap-1 items-center">
+      <input
+        class="h-auto"
+        type="checkbox"
+        (change)="change($event)"
+        [value]="option.value"
+        [id]="control.control.name + index" />
+      <label [for]="control.control.name + index">
+        {{ option.label }}
+      </label>
+    </div>
+  }
+</div>

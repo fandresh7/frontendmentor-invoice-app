@@ -106,11 +106,18 @@
   grid-column: 9 / span 4;
 }
 
-:host ::ng-deep .wrapper-items-list {
-  grid-row: 12 / span 1;
+:host ::ng-deep .wrapper-product-list {
+  grid-row: 13 / span 1;
   grid-column: 1 / span 12;
 }
 
+:host ::ng-deep .wrapper-product-list div {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
 .buttons {
+  grid-row: 14 / span 1;
   grid-column: 1 / span 12;
 }

@@ -1,0 +1,21 @@
+<label
+  class="body-variant block text-light3"
+  for="">
+  {{ control.control.label }}
+</label>
+
+<div class="flex flex-col gap-1 text-dark1 dark:text-light1">
+  @for (option of control.control.options; track option.value; let i = $index) {
+    <div class="flex flex-row gap-1 items-center">
+      <input
+        class="h-auto"
+        type="radio"
+        [formControlName]="control.control.name"
+        [value]="option.value"
+        [id]="control.control.name + i" />
+      <label [for]="control.control.name + i">
+        {{ option.label }}
+      </label>
+    </div>
+  }
+</div>

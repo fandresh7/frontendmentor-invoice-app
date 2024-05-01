@@ -20,6 +20,7 @@
     </ng-container>
   }
 
+  <h1 class="items font-bold text-primary">Items</h1>
   @for (control of itemList; track control.name) {
     <ng-container
       [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
@@ -31,6 +32,4 @@
     <app-button3>Cancel</app-button3>
     <app-button2 type="submit">Save Changes</app-button2>
   </div>
-
-  <p style="grid-column: 1 / span 12">{{ form.value | json }}</p>
 </form>

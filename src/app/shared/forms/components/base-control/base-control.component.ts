@@ -36,7 +36,8 @@ export class BaseControlComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.parentFormGroup.removeControl(this.control.control.name)
+    if (this.control.formGroup) return
+    else this.parentFormGroup.removeControl(this.control.control.name)
   }
 
   resolveValidators({ validators = {} }: Control) {

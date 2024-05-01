@@ -5,14 +5,17 @@ export interface Form {
   dependencies?: Dependencies
 }
 
-export type ControlType = 'input' | 'select' | 'calendar' | 'group' | 'items'
+export type ControlType = 'input' | 'select' | 'calendar' | 'group' | 'items' | 'checkbox' | 'checkbox-group' | 'radio'
 
 export enum ControlTypeValues {
   INPUT = 'input',
   SELECT = 'select',
   CALENDAR = 'calendar',
   ITEMS = 'items',
-  GROUP = 'group'
+  GROUP = 'group',
+  CHECKBOX = 'checkbox',
+  CHECKBOX_GROUP = 'checkbox-group',
+  RADIO = 'radio'
 }
 
 export interface Option {
