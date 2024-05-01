@@ -1,26 +1,33 @@
-<fieldset [formArrayName]="control.control.name">
-  <legend>{{ control.control.label }}</legend>
+<fieldset
+  class="mb-4 flex flex-col gap-4"
+  [formArrayName]="control.control.name">
+  @if (control.control.label) {
+    <legend>{{ control.control.label }}</legend>
+  }
+
   @for (group of formControl.controls; track group; let index = $index) {
-    <div
-      class="flex flex-row gap-1 items-center"
-      [formGroupName]="index">
+    <div [formGroupName]="index">
       @for (control of control.control.controls; track control.name) {
         <ng-container
           [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
           [ngComponentOutletInjector]="control.name | controlInjector: control : group : index">
         </ng-container>
       }
+
+      <div class="flex flex-col">
+        <p class="body-variant block text-light3">Total</p>
+        <div class="flex items-center font-bold h-12 dark:text-white">{{ totalValues[index] | number: '1.2-2' }}</div>
+      </div>
+
       <button
         class="text-light2 mt-4"
         (click)="removeGroup(index)">
         <app-delete-icon></app-delete-icon>
       </button>
     </div>
+  } @empty {
+    <p class="body-variant text-light3">No hay items.</p>
   }
 </fieldset>
 
-<button
-  type="button"
-  (click)="addGroup()">
-  ADD
-</button>
+<app-button6 (click)="addGroup()"></app-button6>

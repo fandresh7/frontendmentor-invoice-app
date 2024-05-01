@@ -39,8 +39,6 @@ export interface Control {
   filterOptions?: boolean
   disabled?: boolean
   options?: Option[]
-  customClass?: string
-  group?: Control[]
   controls?: Control[]
   order: number
   validators?: {

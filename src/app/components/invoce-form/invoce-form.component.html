@@ -4,7 +4,6 @@
   [formGroup]="form"
   (ngSubmit)="submit(form)">
   <h1 class="bills_from font-bold text-primary">Bills From</h1>
-
   @for (control of billsFrom; track control.name) {
     <ng-container
       [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"

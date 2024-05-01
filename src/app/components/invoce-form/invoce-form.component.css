@@ -89,35 +89,18 @@
 
 /* Items */
 
-:host ::ng-deep .wrapper-social-profiles {
-  grid-row: 11 / span 1;
-  grid-column: 1 / span 12;
-}
-
-:host ::ng-deep .wrapper-social-profiles .wrapper-youtube {
-  grid-column: 1 / span 4;
-}
-
-:host ::ng-deep .wrapper-social-profiles .wrapper-twitter {
-  grid-column: 5 / span 4;
-}
-
-:host ::ng-deep .wrapper-social-profiles .wrapper-facebook {
-  grid-column: 9 / span 4;
-}
-
 :host ::ng-deep .wrapper-product-list {
-  grid-row: 13 / span 1;
+  grid-row: 12 / span 1;
   grid-column: 1 / span 12;
 }
 
-:host ::ng-deep .wrapper-product-list div {
-  display: flex;
+:host ::ng-deep .wrapper-product-list fieldset > div {
+  display: grid;
+  grid-template-columns: 3.5fr 1.5fr 3fr 2.5fr 0.5fr;
   gap: 1rem;
-  margin-bottom: 1rem;
 }
 
 .buttons {
-  grid-row: 14 / span 1;
+  grid-row: 13 / span 1;
   grid-column: 1 / span 12;
 }

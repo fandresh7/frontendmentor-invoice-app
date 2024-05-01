@@ -26,6 +26,14 @@ export class BaseControlComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.initialize()
+  }
+
+  ngOnDestroy() {
+    this.destroy()
+  }
+
+  initialize() {
     if (this.control.formGroup) {
       this.control.formGroup.addControl(this.control.control.name, this.formControl)
     } else {
@@ -35,7 +43,7 @@ export class BaseControlComponent implements OnInit, OnDestroy {
     this.hostClass = `wrapper-${this.control.control.name}`
   }
 
-  ngOnDestroy() {
+  destroy() {
     if (this.control.formGroup) return
     else this.parentFormGroup.removeControl(this.control.control.name)
   }
