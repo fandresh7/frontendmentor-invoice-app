@@ -10,7 +10,7 @@
       @for (control of control.control.controls; track control.name) {
         <ng-container
           [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
-          [ngComponentOutletInjector]="control.name | controlInjector: control : group : index">
+          [ngComponentOutletInjector]="control.name | controlInjector: control : group">
         </ng-container>
       }
 

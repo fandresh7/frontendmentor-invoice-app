@@ -10,13 +10,13 @@ import { FormGroup } from '@angular/forms'
 export class ControlInjector implements PipeTransform {
   injector = inject(Injector)
 
-  transform(name: string, control: Control, formGroup?: FormGroup, index?: number): Injector {
+  transform(name: string, control: Control, formGroup?: FormGroup): Injector {
     return Injector.create({
       parent: this.injector,
       providers: [
         {
           provide: CONTROL_DATA,
-          useValue: { key: name, control, formGroup, index }
+          useValue: { key: name, control, formGroup }
         }
       ]
     })
