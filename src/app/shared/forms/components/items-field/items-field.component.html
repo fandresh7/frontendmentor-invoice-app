@@ -1,6 +1,7 @@
 <fieldset
   class="mb-4 flex flex-col gap-4"
-  [formArrayName]="control.control.name">
+  [formArrayName]="control.control.name"
+  appValidatorArrayMessage>
   @if (control.control.label) {
     <legend>{{ control.control.label }}</legend>
   }
@@ -20,7 +21,7 @@
       </div>
 
       <button
-        class="text-light2 mt-4"
+        class="text-light2 place-self-center"
         (click)="removeGroup(index)">
         <app-delete-icon></app-delete-icon>
       </button>

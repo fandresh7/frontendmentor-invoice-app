@@ -1,10 +1,15 @@
 import { Directive, HostBinding, OnDestroy, OnInit, StaticProvider, inject } from '@angular/core'
-import { CONTROL_DATA } from '../../utils/control-data.token'
 import { AbstractControl, ControlContainer, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
-import { Control } from '../../models/forms.model'
 import { CommonModule } from '@angular/common'
 
-export const sharedControlDeps = [CommonModule, ReactiveFormsModule]
+import { CONTROL_DATA } from '../../utils/control-data.token'
+import { Control } from '../../models/forms.model'
+
+import { ValidatorMessageDirective } from '../../directives/validator-message/validator-message.directive'
+import { HelpTextDirective } from '../../directives/help-text/help-text.directive'
+import { ValidatorArrayMessageDirective } from '../../directives/validator-array-message/validator-array-message.directive'
+
+export const sharedControlDeps = [CommonModule, ReactiveFormsModule, ValidatorMessageDirective, HelpTextDirective, ValidatorArrayMessageDirective]
 
 export const controlProvider: StaticProvider = {
   provide: ControlContainer,

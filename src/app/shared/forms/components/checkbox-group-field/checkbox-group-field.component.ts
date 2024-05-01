@@ -11,7 +11,7 @@ import { FormArray, FormControl } from '@angular/forms'
   styleUrl: './checkbox-group-field.component.css'
 })
 export class CheckboxGroupFieldComponent extends BaseControlComponent {
-  override formControl = new FormArray<FormControl>([])
+  override formControl = new FormArray<FormControl>([], this.resolveValidators(this.control.control))
 
   change(event: Event) {
     const element = event.target as HTMLInputElement

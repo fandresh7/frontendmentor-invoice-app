@@ -19,6 +19,13 @@
   <app-calendar-icon class="absolute top-1/2 -translate-y-1/2 right-4 text-light3"></app-calendar-icon>
 </div>
 
+<div
+  appHelpText
+  [message]="control.control.helpText ?? ''"
+  appValidatorMessage
+  [formControlName]="control.control.name"
+  ngDefaultControl></div>
+
 <ng-template
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="origin"

@@ -1,7 +1,16 @@
-<div class="flex flex-row gap-1 items-center">
+<div class="flex flex-row flex-wrap gap-x-1 items-center">
   <input
+    class="h-auto"
     type="checkbox"
     [id]="control.control.name"
     [formControlName]="control.control.name" />
   <label [for]="control.control.name">{{ control.control.label }}</label>
+
+  <div
+    class="w-full"
+    appHelpText
+    [message]="control.control.helpText ?? ''"
+    appValidatorMessage
+    ngDefaultControl
+    [formControlName]="control.control.name"></div>
 </div>

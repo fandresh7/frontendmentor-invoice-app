@@ -5,6 +5,9 @@
 </label>
 <input
   class="w-full"
+  appHelpText
+  [message]="control.control.helpText ?? ''"
+  appValidatorMessage
   [type]="control.control.type"
   [formControlName]="control.control.name"
   [checked]="control.control.value"

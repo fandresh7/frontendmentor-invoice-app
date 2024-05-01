@@ -1,5 +1,5 @@
 import { NgComponentOutlet, AsyncPipe, JsonPipe } from '@angular/common'
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { Button2Component } from '../../shared/components/buttons/button2/button2.component'
 import { ControlInjector } from '../../shared/forms/pipes/control-injector.pipe'
@@ -22,13 +22,10 @@ export class InvoceFormComponent {
   billsTo = billToControls
   itemList = itemListControls
 
-  @Output() submittedFormEvent: EventEmitter<FormGroup> = new EventEmitter<FormGroup>()
-
   constructor(protected controlResolver: ControlResolver) {}
 
   submit(form: FormGroup) {
     console.log(form.value)
     if (form.invalid) return
-    this.submittedFormEvent.emit(form)
   }
 }

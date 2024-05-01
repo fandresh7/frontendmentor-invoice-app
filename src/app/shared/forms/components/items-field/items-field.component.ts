@@ -22,7 +22,7 @@ export class ItemsFieldComponent extends BaseControlComponent implements OnInit,
   totalValues: number[] = []
   subscription!: Subscription
 
-  override formControl = new FormArray<FormGroup>([])
+  override formControl = new FormArray<FormGroup>([], this.resolveValidators(this.control.control))
 
   override ngOnInit() {
     this.initialize()
