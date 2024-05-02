@@ -37,7 +37,7 @@
   (backdropClick)="close()"
   (detach)="close()">
   <div class="panel z-10 bg-white w-full flex flex-col rounded-xl text-dark3 dark:bg-dark2 dark:text-light1">
-    @for (option of control.control.options; track option) {
+    @for (option of getOptions() | async; track option) {
       <p
         class="heading-s py-4 cursor-pointer px-6 border-light1 dark:border-dark1 hover:text-primary transition-colors duration-300"
         (click)="setControlValue(option.value)">

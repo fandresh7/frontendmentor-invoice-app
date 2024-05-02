@@ -6,7 +6,7 @@ import { BaseControlComponent, controlProvider, sharedControlDeps } from '../bas
 @Component({
   selector: 'app-select-field',
   standalone: true,
-  imports: [OverlayModule, ArrowDownIconComponent, ...sharedControlDeps],
+  imports: [...sharedControlDeps, OverlayModule, ArrowDownIconComponent],
   viewProviders: [controlProvider],
   templateUrl: './select-field.component.html',
   styleUrl: './select-field.component.css'

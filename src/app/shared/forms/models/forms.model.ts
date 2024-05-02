@@ -1,4 +1,5 @@
 import { FormGroup, Validators } from '@angular/forms'
+import { Observable } from 'rxjs'
 
 export interface Form {
   controls: Control[]
@@ -38,6 +39,7 @@ export interface Control {
   value?: unknown
   filterOptions?: boolean
   disabled?: boolean
+  asyncOptions?: (form: FormGroup) => Observable<Option[]>
   options?: Option[]
   controls?: Control[]
   visible?: (form: FormGroup) => boolean

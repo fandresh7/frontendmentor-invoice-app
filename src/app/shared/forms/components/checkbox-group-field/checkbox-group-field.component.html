@@ -10,7 +10,7 @@
   appHelpText
   [message]="control.control.helpText ?? ''"
   appValidatorArrayMessage>
-  @for (option of control.control.options; track option.value; let index = $index) {
+  @for (option of getOptions() | async; track option.value; let index = $index) {
     <div class="flex flex-row gap-1 items-center">
       <input
         class="h-auto"
