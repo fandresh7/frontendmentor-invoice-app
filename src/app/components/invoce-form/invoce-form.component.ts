@@ -26,6 +26,7 @@ export class InvoceFormComponent {
 
   submit(form: FormGroup) {
     console.log(form.value)
+    console.log(form.valid)
     if (form.invalid) return
   }
 }

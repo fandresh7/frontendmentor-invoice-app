@@ -23,8 +23,6 @@ export class ValidatorArrayMessageDirective implements OnInit, OnDestroy {
   ngOnInit() {
     const formArray = this.parentContainer.control
 
-    console.log({ control: this.parentContainer.control, parent: this.parentContainer, form: this.form })
-
     if (!formArray) return
 
     this.controlSubscription = merge(

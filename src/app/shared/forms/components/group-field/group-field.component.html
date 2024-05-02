@@ -3,7 +3,7 @@
   [formGroupName]="control.control.name">
   @for (control of control.control.controls; track control.name) {
     <ng-container
-      [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
+      [ngComponentOutlet]="controlResolver.resolve(control, parentFormGroup) | async"
       [ngComponentOutletInjector]="control.name | controlInjector: control">
     </ng-container>
   }

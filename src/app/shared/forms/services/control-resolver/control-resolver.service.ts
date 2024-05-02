@@ -1,6 +1,8 @@
 import { Injectable, Type } from '@angular/core'
-import { Control } from '../../models/forms.model'
 import { from, of, tap } from 'rxjs'
+
+import { Control } from '../../models/forms.model'
+import { FormGroup } from '@angular/forms'
 
 type ControlMap = {
   [T in Control['controlType']]: () => Promise<Type<unknown>>
@@ -23,7 +25,12 @@ export class ControlResolver {
 
   private loadedControlComponents = new Map<string, Type<unknown>>()
 
-  resolve(controlType: keyof ControlMap) {
+  resolve(control: Control, form: FormGroup) {
+    const controlType = control.controlType
+
+    const isVisible = this.checkVisible(control, form)
+    if (!isVisible) return
+
     const loadedComponent = this.loadedControlComponents.get(controlType)
 
     if (loadedComponent) return of(loadedComponent)
@@ -33,5 +40,10 @@ export class ControlResolver {
         this.loadedControlComponents.set(controlType, component)
       })
     )
+  }
+
+  checkVisible(control: Control, form: FormGroup) {
+    if (!control.visible) return true
+    return control.visible(form)
   }
 }

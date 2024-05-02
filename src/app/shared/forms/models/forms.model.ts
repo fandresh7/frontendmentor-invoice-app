@@ -1,4 +1,4 @@
-import { Validators } from '@angular/forms'
+import { FormGroup, Validators } from '@angular/forms'
 
 export interface Form {
   controls: Control[]
@@ -40,6 +40,7 @@ export interface Control {
   disabled?: boolean
   options?: Option[]
   controls?: Control[]
+  visible?: (form: FormGroup) => boolean
   order: number
   validators?: {
     [key in ValidatorsKeys]?: unknown

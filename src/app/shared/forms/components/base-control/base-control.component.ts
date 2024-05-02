@@ -6,7 +6,7 @@ import { CONTROL_DATA } from '../../utils/control-data.token'
 import { Control } from '../../models/forms.model'
 
 import { ValidatorMessageDirective } from '../../directives/validator-message/validator-message.directive'
-import { HelpTextDirective } from '../../directives/help-text/help-text.directive'
+import { HelpTextDirective } from '../../directives/helpText/help-text.directive'
 import { ValidatorArrayMessageDirective } from '../../directives/validator-array-message/validator-array-message.directive'
 
 export const sharedControlDeps = [CommonModule, ReactiveFormsModule, ValidatorMessageDirective, HelpTextDirective, ValidatorArrayMessageDirective]

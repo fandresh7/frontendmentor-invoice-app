@@ -6,7 +6,7 @@
   <h1 class="bills_from font-bold text-primary">Bills From</h1>
   @for (control of billsFrom; track control.name) {
     <ng-container
-      [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
+      [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
       [ngComponentOutletInjector]="control.name | controlInjector: control">
     </ng-container>
   }
@@ -14,7 +14,7 @@
   <h1 class="bills_to font-bold text-primary">Bills To</h1>
   @for (control of billsTo; track control.name) {
     <ng-container
-      [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
+      [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
       [ngComponentOutletInjector]="control.name | controlInjector: control">
     </ng-container>
   }
@@ -22,7 +22,7 @@
   <h1 class="items font-bold text-primary">Items</h1>
   @for (control of itemList; track control.name) {
     <ng-container
-      [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
+      [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
       [ngComponentOutletInjector]="control.name | controlInjector: control">
     </ng-container>
   }

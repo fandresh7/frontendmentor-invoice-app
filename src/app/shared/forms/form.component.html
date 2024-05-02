@@ -5,7 +5,7 @@
   (ngSubmit)="submit(form)">
   @for (control of controls; track control.name) {
     <ng-container
-      [ngComponentOutlet]="controlResolver.resolve(control.controlType) | async"
+      [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
       [ngComponentOutletInjector]="control.name | controlInjector: control">
     </ng-container>
   }
