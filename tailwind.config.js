@@ -22,7 +22,10 @@ module.exports = {
         "theme-red": "#EC5757",
         "theme-light-red": "#FF9797",
         "theme-background-light": "#F8F8FB",
-        "theme-background-dark": "#141625"
+        "theme-background-dark": "#141625",
+        "theme-draft": "#373B53",
+        "theme-pending": "#FF8F00",
+        "theme-paid": "#33D69F",
       },
 
     },
