@@ -1,10 +1,26 @@
 <article class="grid grid-cols-2 bg-white dark:bg-theme-dark rounded-xl p-6 md:flex md:flex-row md:items-center md:gap-10">
-  <h2 class="heading-s-variant text-theme-black dark:text-white md:order-1"><span class="text-theme-blue">#</span>RT3080</h2>
-  <p class="body text-theme-blue dark:text-white justify-self-end md:order-3 md:grow">Jensen Huang</p>
+  <h2 class="heading-s-variant text-theme-black dark:text-white md:order-1">
+    <span class="text-theme-blue">#</span>
+    {{ invoice.id }}
+  </h2>
 
-  <p class="body text-theme-blue dark:text-theme-light mt-4 md:m-0 md:order-2 md:grow"><span class="text-theme-grey dark:text-theme-light">Due</span> 19 Aug 2021</p>
-  <app-invoce-status class="status justify-self-end self-end md:order-6"></app-invoce-status>
-  <p class="heading-s text-theme-black dark:text-white mt-2 md:m-0 md:order-4">$1,800.90</p>
+  <p class="body text-theme-blue dark:text-white justify-self-end md:order-3 md:grow">
+    {{ invoice.clientName }}
+  </p>
+
+  <p class="body text-theme-blue dark:text-theme-light mt-4 md:m-0 md:order-2 md:grow">
+    <span class="text-theme-grey dark:text-theme-light">Due</span>
+    {{ invoice.paymentDue | datesFormat }}
+  </p>
+
+  <app-invoce-status
+    class="status justify-self-end self-end md:order-6"
+    [status]="invoice.status">
+  </app-invoce-status>
+
+  <p class="heading-s text-theme-black dark:text-white mt-2 md:m-0 md:order-4">
+    {{ invoice.total | currency: 'USD' : 'symbol' : '1.2-2' }}
+  </p>
 
   <app-right-arrow-icon class="hidden md:block text-theme-primary md:order-7"></app-right-arrow-icon>
 </article>

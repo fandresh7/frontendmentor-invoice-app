@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { Component, Input } from '@angular/core'
-import { Status } from '../../models/status'
+import { Status } from '../../models/invoice'
 
 @Component({
   selector: 'app-invoce-status',
