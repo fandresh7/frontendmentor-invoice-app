@@ -1,1 +1,18 @@
-<p>header works!</p>
+<header class="flex flex-row items-center bg-theme-slate gap-6 pr-6">
+  <div
+    class="relative bg-theme-primary h-20 w-20 rounded-r-3xl grid place-content-center before:absolute before:h-10 before:w-full before:bg-theme-primary-accent before:rounded-tl-3xl before:rounded-br-3xl before:bottom-0">
+    <img
+      class="z-10"
+      src="assets/logo.svg"
+      alt="logo" />
+  </div>
+
+  <app-dark-mode-button class="ml-auto grid place-items-center"></app-dark-mode-button>
+
+  <div class="w-[2px] h-20 bg-[#494E6E]"></div>
+
+  <img
+    class="rounded-full w-8 h-8"
+    src="assets/image-avatar.jpg"
+    alt="avatar" />
+</header>
