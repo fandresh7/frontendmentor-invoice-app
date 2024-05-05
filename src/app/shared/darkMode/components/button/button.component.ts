@@ -5,13 +5,13 @@ import { Observable } from 'rxjs'
 import { AsyncPipe } from '@angular/common'
 
 @Component({
-  selector: 'app-button',
+  selector: 'app-dark-mode-button',
   standalone: true,
   imports: [SunIconComponent, MoonIconComponent, AsyncPipe],
   templateUrl: './button.component.html',
   styleUrl: './button.component.css'
 })
-export class ButtonComponent {
+export class DarkModeButtonComponent {
   darkModeService = inject(DarkModeService)
 
   isDarkMode$: Observable<boolean>

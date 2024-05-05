@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { DarkModeButtonComponent } from './button.component'
+import { DefaultButtonComponent } from './default-button.component'
 
-describe('ButtonComponent', () => {
-  let component: DarkModeButtonComponent
-  let fixture: ComponentFixture<DarkModeButtonComponent>
+describe('DefaultButtonComponent', () => {
+  let component: DefaultButtonComponent
+  let fixture: ComponentFixture<DefaultButtonComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DarkModeButtonComponent]
+      imports: [DefaultButtonComponent]
     }).compileComponents()
 
-    fixture = TestBed.createComponent(DarkModeButtonComponent)
+    fixture = TestBed.createComponent(DefaultButtonComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })

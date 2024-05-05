@@ -12,7 +12,7 @@ import { VALIDATION_ERROR_MESSAGES } from '../../utils/validation-error-messages
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @for (error of errors | keyvalue; track error.key) {
-      <div class="text-sm text-accent">{{ getError(error) }}</div>
+      <div class="text-sm">{{ getError(error) }}</div>
     }
   `
 })

@@ -46,7 +46,7 @@ export class BaseControlComponent implements OnInit, OnDestroy {
       this.parentFormGroup.addControl(this.control.control.name, this.formControl)
     }
 
-    this.hostClass = `wrapper-${this.control.control.name}`
+    this.hostClass = `field wrapper-${this.control.control.name}`
   }
 
   destroy() {

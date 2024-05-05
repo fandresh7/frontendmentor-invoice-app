@@ -1,11 +1,9 @@
-<label
-  class="body-variant block text-light3"
-  for="">
+<label for="">
   {{ control.control.label }}
 </label>
 
 <div
-  class="flex flex-col gap-1 text-dark1 dark:text-light1"
+  class="flex flex-col gap-1"
   [formArrayName]="control.control.name"
   appHelpText
   [message]="control.control.helpText ?? ''"

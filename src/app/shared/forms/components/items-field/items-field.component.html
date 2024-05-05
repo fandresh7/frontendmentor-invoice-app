@@ -16,18 +16,18 @@
       }
 
       <div class="flex flex-col">
-        <p class="body-variant block text-light3">Total</p>
-        <div class="flex items-center font-bold h-12 dark:text-white">{{ totalValues[index] | number: '1.2-2' }}</div>
+        <p>Total</p>
+        <div class="flex items-center font-bold h-12">{{ totalValues[index] | number: '1.2-2' }}</div>
       </div>
 
       <button
-        class="text-light2 place-self-center"
+        class="place-self-center"
         (click)="removeGroup(index)">
         <app-delete-icon></app-delete-icon>
       </button>
     </div>
   } @empty {
-    <p class="body-variant text-light3">No hay items.</p>
+    <p>No hay items.</p>
   }
 </fieldset>
 
