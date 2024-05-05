@@ -5,11 +5,12 @@ import { InvoicesService } from '../../services/invoices.service'
 import { Observable } from 'rxjs'
 import { Invoice } from '../../models/invoice'
 import { AsyncPipe } from '@angular/common'
+import { InvoicesAmountPipe } from '../../pipes/invoices-amount.pipe'
 
 @Component({
   selector: 'app-invoices',
   standalone: true,
-  imports: [NewButtonComponent, InvoiceCardComponent, AsyncPipe],
+  imports: [NewButtonComponent, InvoiceCardComponent, AsyncPipe, InvoicesAmountPipe],
   templateUrl: './invoices.component.html',
   styleUrl: './invoices.component.css'
 })
