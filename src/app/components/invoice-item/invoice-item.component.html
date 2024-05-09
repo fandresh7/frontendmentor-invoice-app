@@ -1,0 +1,9 @@
+<div class="heading-s-variant flex flex-row justify-between items-center">
+  <div class="flex flex-row flex-wrap gap-x-1 gap-y-2 text-theme-blue dark:text-theme-grey">
+    <p class="w-full text-theme-black dark:text-white">{{ item.name }}</p>
+    <p>{{ item.quantity }}</p>
+    <p>x</p>
+    <p>{{ item.price | currency: 'USD' : 'symbol' : '1.2-2' }}</p>
+  </div>
+  <p class="text-theme-black dark:text-white">{{ item.total | currency: 'USD' : 'symbol' : '1.2-2' }}</p>
+</div>

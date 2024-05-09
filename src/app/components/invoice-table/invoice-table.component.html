@@ -1,0 +1,28 @@
+<div class="bg-theme-background-light rounded-t-lg p-6 dark:bg-theme-darker">
+  <div class="flex flex-col gap-4 w-full sm:hidden">
+    @for (item of items; track item.name) {
+      <app-invoice-item [item]="item"></app-invoice-item>
+    }
+  </div>
+
+  <table class="hidden w-full text-right text-theme-blue sm:table border-collapse dark:text-theme-light">
+    <thead>
+      <tr>
+        <th class="pb-6 font-normal text-left">Item Name</th>
+        <th class="pb-6 font-normal text-center">QTY.</th>
+        <th class="pb-6 font-normal">Price</th>
+        <th class="pb-6 font-normal">Total</th>
+      </tr>
+    </thead>
+    <tbody class="heading-s-variant">
+      @for (item of items; track item.name) {
+        <tr>
+          <td class="text-theme-black text-left py-4 dark:text-white">{{ item.name }}</td>
+          <td class="text-center py-4">{{ item.quantity }}</td>
+          <td class="py-4">{{ item.price | currency: 'USD' : 'symbol' : '1.2-2' }}</td>
+          <td class="text-theme-black py-4 dark:text-white">{{ item.total | currency: 'USD' : 'symbol' : '1.2-2' }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

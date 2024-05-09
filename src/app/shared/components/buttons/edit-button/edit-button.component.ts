@@ -7,7 +7,7 @@ import { BaseButtonComponent } from '../base-button/base-button.component'
   template: `<button
     [type]="type"
     (click)="click()"
-    class="heading-s-variant text-theme-blue dark:text-theme-light bg-[#F9FAFE] dark:bg-theme-darker hover:bg-[#DFE3FA] dark:hover:bg-white transition-colors duration-500 rounded-3xl pt-[17px] pb-[15px] px-6">
+    class="heading-s-variant text-theme-blue  bg-[#F9FAFE] dark:bg-theme-darker hover:bg-[#DFE3FA] dark:hover:bg-white transition-colors duration-500 rounded-3xl pt-[17px] pb-[15px] px-6">
     <ng-content></ng-content>
   </button>`
 })

@@ -12,14 +12,7 @@
     @for (invoice of invoices; track invoice.id) {
       <app-invoice-card [invoice]="invoice"></app-invoice-card>
     } @empty {
-      <div class="flex flex-col gap-4 justify-center items-center text-center h-full">
-        <img
-          class="w-56"
-          src="assets/illustration-empty.svg"
-          alt="empty invoices" />
-        <h2 class="heading-l text-theme-black dark:text-white">There is nothing here</h2>
-        <p class="body-variant text-theme-grey dark:text-theme-light max-w-72">Create a new invoice by clicking the <span class="font-bold">New Invoice</span> button and get started</p>
-      </div>
+      <app-empty-invoice>Create a new invoice by clicking the <span class="font-bold">New Invoice</span> button and get started</app-empty-invoice>
     }
   </section>
 }

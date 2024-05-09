@@ -1,0 +1,71 @@
+<app-breadcrumb></app-breadcrumb>
+
+<section class="flex flex-col gap-6">
+  @if (invoice$ | async; as invoice) {
+    <section class="flex items-center justify-between p-6 rounded-lg bg-white sm:gap-4 dark:bg-theme-dark">
+      <p class="text-theme-black dark:text-theme-light">Status</p>
+
+      <app-invoce-status [status]="invoice.status"></app-invoce-status>
+
+      <div class="absolute top-full left-0 w-full bg-white p-6 flex flex-row justify-between flex-wrap sm:static sm:p-0 sm:justify-end sm:gap-4 dark:bg-theme-dark">
+        <app-edit-button>Edit</app-edit-button>
+        <app-delete-button>Delete</app-delete-button>
+        <app-default-button>Mark as Paid</app-default-button>
+      </div>
+    </section>
+
+    <section class="body bg-white text-theme-blue flex flex-row flex-wrap items-center gap-y-4 gap-x-10 rounded-lg p-6 sm:gap-x-14 dark:bg-theme-dark dark:text-theme-light">
+      <div class="sm:w-6/12 sm:flex sm:flex-col sm:gap-2 sm:order-1">
+        <p class="heading-s-variant text-theme-dark w-full dark:text-white">
+          <span class="text-theme-blue">#</span>
+          {{ invoice.id }}
+        </p>
+        <p>{{ invoice.description }}</p>
+      </div>
+
+      <div class="w-full sm:w-5/12 sm:text-right sm:grow sm:order-2">
+        <p>{{ invoice.senderAddress.street }}</p>
+        <p>{{ invoice.senderAddress.city }}</p>
+        <p>{{ invoice.senderAddress.postCode }}</p>
+        <p>{{ invoice.senderAddress.country }}</p>
+      </div>
+
+      <div class="w-5/12 flex flex-col gap-2 sm:w-1/4 sm:order-3">
+        <p>Invoice Date</p>
+        <p class="heading-s text-theme-black dark:text-white">{{ invoice.createdAt | datesFormat }}</p>
+      </div>
+
+      <div class="w-5/12 flex flex-col gap-2 sm:w-1/4 sm:order-4">
+        <p>Bill To</p>
+        <p class="heading-s text-theme-black dark:text-white">{{ invoice.clientName }}</p>
+      </div>
+
+      <div class="w-5/12 flex flex-col gap-2 sm:w-1/4 sm:order-6">
+        <p>Payment Due</p>
+        <p class="heading-s text-theme-black dark:text-white">{{ invoice.paymentDue | datesFormat }}</p>
+      </div>
+
+      <div class="w-5/12 sm:w-1/4 sm:order-7">
+        <p>{{ invoice.clientAddress.street }}</p>
+        <p>{{ invoice.clientAddress.city }}</p>
+        <p>{{ invoice.clientAddress.postCode }}</p>
+        <p>{{ invoice.clientAddress.country }}</p>
+      </div>
+
+      <div class="w-full flex flex-col gap-2 sm:w-1/4 sm:order-5">
+        <p>Sent to</p>
+        <p class="heading-s text-theme-black dark:text-white">{{ invoice.clientEmail }}</p>
+      </div>
+
+      <section class="w-full sm:order-8">
+        <app-invoice-table [items]="invoice.items"></app-invoice-table>
+        <div class="text-white bg-theme-slate flex justify-between items-center p-6 rounded-b-lg dark:bg-theme-black">
+          <p class="body-variant">Grand Total</p>
+          <p class="heading-m">{{ invoice.total | currency: 'USD' : 'symbol' : '1.2-2' }}</p>
+        </div>
+      </section>
+    </section>
+  } @else {
+    <app-empty-invoice>Create a new invoice by clicking the <span class="font-bold">New Invoice</span> button and get started</app-empty-invoice>
+  }
+</section>

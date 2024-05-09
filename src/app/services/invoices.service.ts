@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 
-import { BehaviorSubject } from 'rxjs'
+import { BehaviorSubject, map } from 'rxjs'
 
 import { Invoice } from '../models/invoice'
 
@@ -33,5 +33,15 @@ export class InvoicesService {
     return this.http.get<Invoice[]>('assets/data.json').subscribe(invoices => {
       this.invoicesSubject$.next(invoices)
     })
+  }
+
+  getInvoice(id: string) {
+    return this.invoices$.pipe(
+      map(invoices => {
+        const invoice = invoices.find(i => i.id === id)
+
+        return invoice
+      })
+    )
   }
 }
