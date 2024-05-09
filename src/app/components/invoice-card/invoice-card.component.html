@@ -1,4 +1,6 @@
-<article class="grid grid-cols-2 bg-white dark:bg-theme-dark rounded-xl p-6 md:flex md:flex-row md:items-center md:gap-10">
+<article
+  [routerLink]="['invoice', invoice.id]"
+  class="grid grid-cols-2 bg-white dark:bg-theme-dark rounded-xl p-6 cursor-pointer border-2 border-transparent hover:border-theme-primary hover:border-2 md:flex md:flex-row md:items-center md:gap-10 transition-all duration-300">
   <h2 class="heading-s-variant text-theme-black dark:text-white md:order-1">
     <span class="text-theme-blue">#</span>
     {{ invoice.id }}

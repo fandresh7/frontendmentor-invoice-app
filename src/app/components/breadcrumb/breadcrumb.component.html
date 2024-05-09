@@ -1,5 +1,7 @@
-<div class="text-theme-primary flex flex-row items-center gap-8 py-4">
+<div
+  [routerLink]="link"
+  class="group/breadcrumb text-theme-primary flex flex-row items-center gap-8 py-4 cursor-pointer">
   <app-left-arrow-icon></app-left-arrow-icon>
 
-  <p class="body-variant text-theme-black dark:text-white">Go Back</p>
+  <p class="body-variant text-theme-black dark:text-white group-hover/breadcrumb:text-theme-grey transition-colors">Go Back</p>
 </div>
