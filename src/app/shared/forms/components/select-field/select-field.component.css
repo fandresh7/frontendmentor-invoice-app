@@ -1,7 +1,3 @@
-.panel {
-  box-shadow: 0 10px 20px rgba(72,84,159,.25);
-}
-
 .panel p:not(:last-child) {
   border-bottom-width: 1px;
 }

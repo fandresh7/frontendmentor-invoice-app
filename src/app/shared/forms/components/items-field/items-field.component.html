@@ -16,19 +16,19 @@
       }
 
       <div class="flex flex-col">
-        <p>Total</p>
-        <div class="flex items-center font-bold h-12">{{ totalValues[index] | number: '1.2-2' }}</div>
+        <p class="body-variant text-theme-blue my-1 dark:text-theme-light">Total</p>
+        <div class="w-full flex items-center font-bold h-12 text-theme-grey dark:text-theme-light">{{ totalValues[index] | number: '1.2-2' }}</div>
       </div>
 
       <button
-        class="place-self-center"
+        class="place-self-start mt-9 text-theme-grey hover:text-theme-red transition-colors duration-300 dark:text-theme-light dark:hover:text-theme-red"
         (click)="removeGroup(index)">
         <app-delete-icon></app-delete-icon>
       </button>
     </div>
   } @empty {
-    <p>No hay items.</p>
+    <p class="text-theme-black dark:text-white">There is not items.</p>
   }
 </fieldset>
 
-<app-button6 (click)="addGroup()"></app-button6>
+<app-add-button (click)="addGroup()"></app-add-button>

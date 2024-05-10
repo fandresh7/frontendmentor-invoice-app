@@ -1,10 +1,12 @@
 <div class="bg-theme-background-light rounded-t-lg p-6 dark:bg-theme-darker">
+  <!-- mobile -->
   <div class="flex flex-col gap-4 w-full sm:hidden">
     @for (item of items; track item.name) {
       <app-invoice-item [item]="item"></app-invoice-item>
     }
   </div>
 
+  <!-- web - tablet -->
   <table class="hidden w-full text-right text-theme-blue sm:table border-collapse dark:text-theme-light">
     <thead>
       <tr>

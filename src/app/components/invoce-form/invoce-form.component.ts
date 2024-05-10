@@ -1,16 +1,19 @@
-import { NgComponentOutlet, AsyncPipe, JsonPipe } from '@angular/common'
+import { NgComponentOutlet, AsyncPipe } from '@angular/common'
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { FormGroup, ReactiveFormsModule } from '@angular/forms'
-import { Button2Component } from '../../shared/components/buttons/button2/button2.component'
+
 import { ControlInjector } from '../../shared/forms/pipes/control-injector.pipe'
 import { ControlResolver } from '../../shared/forms/services/control-resolver/control-resolver.service'
+
 import { billFromControls, billToControls, itemListControls } from './data'
-import { Button3Component } from '../../shared/components/buttons/button3/button3.component'
+import { DefaultButtonComponent } from '../../shared/components/buttons/default-button/default-button.component'
+import { SaveButtonComponent } from '../../shared/components/buttons/save-button/save-button.component'
+import { EditButtonComponent } from '../../shared/components/buttons/edit-button/edit-button.component'
 
 @Component({
   selector: 'app-invoce-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgComponentOutlet, ControlInjector, AsyncPipe, Button2Component, Button3Component, JsonPipe],
+  imports: [ReactiveFormsModule, NgComponentOutlet, ControlInjector, AsyncPipe, DefaultButtonComponent, SaveButtonComponent, EditButtonComponent],
   templateUrl: './invoce-form.component.html',
   styleUrl: './invoce-form.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -24,9 +27,17 @@ export class InvoceFormComponent {
 
   constructor(protected controlResolver: ControlResolver) {}
 
-  submit(form: FormGroup) {
-    console.log(form.value)
-    console.log(form.valid)
-    if (form.invalid) return
+  submit() {
+    console.log(this.form.value)
+    console.log(this.form.valid)
+    if (this.form.invalid) return
+  }
+
+  discard() {
+    console.log('discard')
+  }
+
+  saveAsDraft() {
+    console.log('save as draft')
   }
 }

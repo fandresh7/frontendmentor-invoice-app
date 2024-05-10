@@ -3,6 +3,7 @@
 </label>
 
 <div
+  class="control-box"
   cdkOverlayOrigin
   #origin="cdkOverlayOrigin">
   <input
@@ -13,7 +14,7 @@
     type="text"
     [id]="control.control.name + (control.index ?? '')" />
   {{ formControl.value }}
-  <app-calendar-icon class="absolute top-1/2 -translate-y-1/2 right-4"></app-calendar-icon>
+  <app-calendar-icon class="absolute top-1/2 -translate-y-1/2 right-4 text-theme-blue"></app-calendar-icon>
 </div>
 
 <div
@@ -27,8 +28,9 @@
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="origin"
   [cdkConnectedOverlayOpen]="isOpen"
-  [cdkConnectedOverlayMinWidth]="230"
+  [cdkConnectedOverlayMinWidth]="200"
   [cdkConnectedOverlayOffsetY]="24"
+  cdkConnectedOverlayPanelClass="box-shadow"
   cdkConnectedOverlayHasBackdrop
   cdkConnectedOverlayBackdropClass="backdrop-dropdown"
   (backdropClick)="close()"

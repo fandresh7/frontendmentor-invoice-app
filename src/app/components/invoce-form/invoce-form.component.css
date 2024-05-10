@@ -88,6 +88,10 @@
 }
 
 /* Items */
+.items {
+  grid-row: 11 / span 1;
+  grid-column: 1 / span 12;
+}
 
 :host ::ng-deep .wrapper-product-list {
   grid-row: 12 / span 1;
@@ -100,22 +104,7 @@
   gap: 1rem;
 }
 
-:host ::ng-deep .wrapper-terms {
-  grid-row: 13 / span 1;
-  grid-column: 1 / span 12;
-}
-
-:host ::ng-deep .wrapper-genre {
-  grid-row: 14 / span 1;
-  grid-column: 1 / span 12;
-}
-
-:host ::ng-deep .wrapper-sports {
-  grid-row: 15 / span 1;
-  grid-column: 1 / span 12;
-}
-
 .buttons {
-  grid-row: 16 / span 1;
+  grid-row: 13 / span 1;
   grid-column: 1 / span 12;
 }

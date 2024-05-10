@@ -1,34 +1,41 @@
-<form
-  class="invoce-form"
-  autocomplete="off"
-  [formGroup]="form"
-  (ngSubmit)="submit(form)">
-  <h1 class="bills_from font-bold text-primary">Bills From</h1>
-  @for (control of billsFrom; track control.name) {
-    <ng-container
-      [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
-      [ngComponentOutletInjector]="control.name | controlInjector: control">
-    </ng-container>
-  }
+<div class="bg-white rounded-xl p-8 dark:bg-theme-background-dark">
+  <h1 class="heading-m text-theme-black dark:text-white">New Invoice</h1>
+  <form
+    class="invoce-form"
+    autocomplete="off"
+    [formGroup]="form"
+    (ngSubmit)="submit()">
+    <h1 class="bills_from heading-s-variant text-theme-primary mt-8">Bills From</h1>
+    @for (control of billsFrom; track control.name) {
+      <ng-container
+        [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
+        [ngComponentOutletInjector]="control.name | controlInjector: control">
+      </ng-container>
+    }
 
-  <h1 class="bills_to font-bold text-primary">Bills To</h1>
-  @for (control of billsTo; track control.name) {
-    <ng-container
-      [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
-      [ngComponentOutletInjector]="control.name | controlInjector: control">
-    </ng-container>
-  }
+    <h1 class="bills_to heading-s-variant text-theme-primary mt-8">Bills To</h1>
+    @for (control of billsTo; track control.name) {
+      <ng-container
+        [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
+        [ngComponentOutletInjector]="control.name | controlInjector: control">
+      </ng-container>
+    }
 
-  <h1 class="items font-bold text-primary">Items</h1>
-  @for (control of itemList; track control.name) {
-    <ng-container
-      [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
-      [ngComponentOutletInjector]="control.name | controlInjector: control">
-    </ng-container>
-  }
+    <h1 class="items heading-s-variant text-theme-grey mt-8">Items List</h1>
+    @for (control of itemList; track control.name) {
+      <ng-container
+        [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
+        [ngComponentOutletInjector]="control.name | controlInjector: control">
+      </ng-container>
+    }
 
-  <div class="buttons flex flex-row gap-4 justify-end">
-    <app-button3>Cancel</app-button3>
-    <app-button2 type="submit">Save Changes</app-button2>
-  </div>
-</form>
+    <div class="buttons flex flex-row gap-4 justify-end">
+      <div class="grow">
+        <app-edit-button (clicked)="discard()">Discard</app-edit-button>
+      </div>
+
+      <app-save-button (clicked)="saveAsDraft()">Save as Draft</app-save-button>
+      <app-default-button type="submit">Save & Send</app-default-button>
+    </div>
+  </form>
+</div>

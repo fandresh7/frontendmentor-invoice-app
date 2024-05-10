@@ -7,12 +7,12 @@ import { BaseControlComponent, controlProvider, sharedControlDeps } from '../bas
 import { ControlResolver } from '../../services/control-resolver/control-resolver.service'
 import { ControlInjector } from '../../pipes/control-injector.pipe'
 import { DeleteIconComponent } from '../../../components/icons.component'
-import { Button6Component } from '../../../components/buttons/button6/button6.component'
+import { AddButtonComponent } from '../../../components/buttons/add-button/add-button.component'
 
 @Component({
   selector: 'app-items-field',
   standalone: true,
-  imports: [...sharedControlDeps, ControlInjector, DeleteIconComponent, Button6Component, DecimalPipe],
+  imports: [...sharedControlDeps, ControlInjector, DeleteIconComponent, DecimalPipe, AddButtonComponent],
   viewProviders: [controlProvider],
   templateUrl: './items-field.component.html'
 })

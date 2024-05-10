@@ -28,7 +28,23 @@
   @apply text-sm/4 font-medium
 }
 
-/*
 input, select, .control-box {
-  @apply heading-s outline-primary outline-1 focus-visible:outline bg-white dark:bg-dark1 text-dark3 dark:text-white p-4 border-light1 dark:border-dark2 border-[1px] border-solid rounded-md h-12
-} */
+  @apply relative w-full heading-s-variant outline-theme-primary text-theme-black outline-1 focus-visible:outline bg-white p-4 border-theme-light border-[1px] border-solid rounded-md h-12 dark:bg-theme-dark dark:border-theme-darker dark:text-white
+}
+
+label {
+  @apply body-variant text-theme-blue dark:text-theme-light
+}
+
+.cdk-overlay-pane {
+  overflow-y: auto;
+}
+
+.backdrop-dropdown {
+  background-color: transparent;
+}
+
+.box-shadow {
+  box-shadow: 0 10px 20px rgba(72, 84, 159, .25);
+  border-radius: 0.75rem;
+}

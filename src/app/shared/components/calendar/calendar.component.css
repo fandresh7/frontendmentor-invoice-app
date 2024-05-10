@@ -1,7 +1,5 @@
 calendar-date {
   &::part(container) {
-    box-shadow: 0 10px 20px rgba(72,84,159,.25);
-    border-radius: 9px;
     padding: 1rem 1rem 0.5rem;
   }
 

@@ -3,7 +3,7 @@
 </label>
 
 <div
-  class="relative w-full h-[3em] cursor-pointer"
+  class="control-box relative w-full h-[3em] cursor-pointer"
   cdkOverlayOrigin
   #origin="cdkOverlayOrigin">
   <input
@@ -14,7 +14,7 @@
     type="text"
     [id]="control.control.name + (control.index ?? '')" />
   {{ formControl.value }}
-  <app-down-arrow-icon class="absolute top-1/2 -translate-y-1/2 right-4 text-primary"></app-down-arrow-icon>
+  <app-down-arrow-icon class="absolute top-1/2 -translate-y-1/2 right-4 text-theme-primary"></app-down-arrow-icon>
 </div>
 
 <div
@@ -30,14 +30,15 @@
   [cdkConnectedOverlayOpen]="isOpen"
   [cdkConnectedOverlayMinWidth]="230"
   [cdkConnectedOverlayOffsetY]="24"
+  cdkConnectedOverlayPanelClass="box-shadow"
   cdkConnectedOverlayHasBackdrop
   cdkConnectedOverlayBackdropClass="backdrop-dropdown"
   (backdropClick)="close()"
   (detach)="close()">
-  <div class="panel z-10 bg-white w-full flex flex-col rounded-xl">
+  <div class="panel z-10 bg-white w-full flex flex-col rounded-xl text-theme-black dark:text-theme-light dark:bg-theme-dark">
     @for (option of getOptions() | async; track option) {
       <p
-        class="py-4 cursor-pointer px-6 transition-colors duration-300"
+        class="heading-s py-4 cursor-pointer px-6 transition-colors duration-300 border-theme-light hover:text-theme-primary dark:border-theme-darker"
         (click)="setControlValue(option.value)">
         {{ option.label }}
       </p>
