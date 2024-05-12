@@ -13,7 +13,7 @@
     [checked]="control.control.value"
     type="text"
     [id]="control.control.name + (control.index ?? '')" />
-  {{ formControl.value }}
+  {{ formControl.value | datesFormat }}
   <app-calendar-icon class="absolute top-1/2 -translate-y-1/2 right-4 text-theme-blue"></app-calendar-icon>
 </div>
 

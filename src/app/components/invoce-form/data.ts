@@ -2,52 +2,60 @@ import { Control } from '../../shared/forms/models/forms.model'
 
 export const billFromControls: Control[] = [
   {
-    label: 'Street Address',
-    name: 'street-address',
-    controlType: 'input',
-    type: 'text',
+    label: '',
+    name: 'senderAddress',
+    controlType: 'group',
     order: 1,
-    validators: {
-      required: true,
-      minLength: 3
-    }
-  },
-  {
-    label: 'City',
-    name: 'city',
-    controlType: 'input',
-    type: 'text',
-    order: 2,
-    validators: {
-      required: true
-    }
-  },
-  {
-    label: 'Post Code',
-    name: 'post-code',
-    controlType: 'input',
-    type: 'text',
-    order: 1,
-    validators: {
-      required: true
-    }
-  },
-  {
-    label: 'Country',
-    name: 'country',
-    controlType: 'input',
-    type: 'text',
-    order: 3,
-    validators: {
-      required: true
-    }
+    controls: [
+      {
+        label: 'Street Address',
+        name: 'street',
+        controlType: 'input',
+        type: 'text',
+        order: 1,
+        validators: {
+          required: true,
+          minLength: 3
+        }
+      },
+      {
+        label: 'City',
+        name: 'city',
+        controlType: 'input',
+        type: 'text',
+        order: 2,
+        validators: {
+          required: true
+        }
+      },
+      {
+        label: 'Post Code',
+        name: 'postCode',
+        controlType: 'input',
+        type: 'text',
+        order: 3,
+        validators: {
+          required: true
+        }
+      },
+      {
+        label: 'Country',
+        name: 'country',
+        controlType: 'input',
+        type: 'text',
+        order: 4,
+        validators: {
+          required: true
+        }
+      }
+    ]
   }
 ]
 
 export const billToControls: Control[] = [
   {
     label: "Client's Name",
-    name: 'client-name',
+    name: 'clientName',
     controlType: 'input',
     type: 'text',
     order: 1,
@@ -57,7 +65,7 @@ export const billToControls: Control[] = [
   },
   {
     label: "Client's Email",
-    name: 'client-email',
+    name: 'clientEmail',
     controlType: 'input',
     type: 'email',
     order: 2,
@@ -66,48 +74,57 @@ export const billToControls: Control[] = [
     }
   },
   {
-    label: 'Street Address',
-    name: 'client-street-address',
-    controlType: 'input',
-    type: 'text',
-    order: 3,
-    validators: {
-      required: true
-    }
-  },
-  {
-    label: 'City',
-    name: 'client-city',
-    controlType: 'input',
-    type: 'text',
-    order: 4,
-    validators: {
-      required: true
-    }
-  },
-  {
-    label: 'Post Code',
-    name: 'client-post-code',
-    controlType: 'input',
-    type: 'text',
-    order: 5,
-    validators: {
-      required: true
-    }
-  },
-  {
-    label: 'Country',
-    name: 'client-country',
-    controlType: 'input',
-    type: 'text',
-    order: 6,
-    validators: {
-      required: true
-    }
+    label: '',
+    name: 'clientAddress',
+    controlType: 'group',
+    order: 1,
+    controls: [
+      {
+        label: 'Street Address',
+        name: 'street',
+        controlType: 'input',
+        type: 'text',
+        order: 1,
+        validators: {
+          required: true,
+          minLength: 3
+        }
+      },
+      {
+        label: 'City',
+        name: 'city',
+        controlType: 'input',
+        type: 'text',
+        order: 2,
+        validators: {
+          required: true
+        }
+      },
+      {
+        label: 'Post Code',
+        name: 'postCode',
+        controlType: 'input',
+        type: 'text',
+        order: 3,
+        validators: {
+          required: true
+        }
+      },
+      {
+        label: 'Country',
+        name: 'country',
+        controlType: 'input',
+        type: 'text',
+        order: 4,
+        validators: {
+          required: true
+        }
+      }
+    ]
   },
   {
     label: 'Invoce Date',
-    name: 'invoce-date',
+    name: 'paymentDue',
     controlType: 'calendar',
     order: 7,
     validators: {
@@ -116,13 +133,13 @@ export const billToControls: Control[] = [
   },
   {
     label: 'Payment Terms',
-    name: 'payment-terms',
+    name: 'paymentTerms',
     controlType: 'select',
     options: [
-      { label: 'Net 1 Day', value: 'next-1-day' },
-      { label: 'Net 7 Days', value: 'next-7-day' },
-      { label: 'Net 14 Days', value: 'next-14-day' },
-      { label: 'Net 30 Days', value: 'next-30-day' }
+      { label: 'Net 1 Day', value: '1' },
+      { label: 'Net 7 Days', value: '7' },
+      { label: 'Net 14 Days', value: '14' },
+      { label: 'Net 30 Days', value: '30' }
     ],
     order: 8,
     validators: {
@@ -131,7 +148,7 @@ export const billToControls: Control[] = [
   },
   {
     label: 'Project Description',
-    name: 'project-description',
+    name: 'description',
     controlType: 'input',
     type: 'text',
     order: 9,
@@ -144,7 +161,7 @@ export const billToControls: Control[] = [
 export const itemListControls: Control[] = [
   {
     label: '',
-    name: 'product-list',
+    name: 'items',
     controlType: 'items',
     controls: [
       {

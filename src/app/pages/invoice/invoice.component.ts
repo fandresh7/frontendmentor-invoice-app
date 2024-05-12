@@ -12,9 +12,11 @@ import { DeleteButtonComponent } from '../../shared/components/buttons/delete-bu
 import { DefaultButtonComponent } from '../../shared/components/buttons/default-button/default-button.component'
 import { InvoiceTableComponent } from '../../components/invoice-table/invoice-table.component'
 import { EmptyInvoiceComponent } from '../../components/empty-invoice/empty-invoice.component'
+import { InvoceFormComponent } from '../../components/invoce-form/invoce-form.component'
 
 import { DatesFormatPipe } from '../../pipes/dates-format.pipe'
 import { Invoice } from '../../models/invoice'
+import { Dialog } from '@angular/cdk/dialog'
 
 @Component({
   selector: 'app-invoice',
@@ -41,6 +43,8 @@ export class InvoiceComponent implements OnInit {
 
   invoice$!: Observable<Invoice | undefined>
 
+  constructor(public dialog: Dialog) {}
+
   ngOnInit(): void {
     this.invoice$ = this.route.params.pipe(
       switchMap(params => {
@@ -49,5 +53,19 @@ export class InvoiceComponent implements OnInit {
         return this.invoicesService.getInvoice(id)
       })
     )
+  }
+
+  edit(invoice: Invoice) {
+    this.dialog.open(InvoceFormComponent, {
+      data: { invoice }
+    })
+  }
+
+  delete(invoice: Invoice) {
+    console.log(invoice)
+  }
+
+  markAsPaid(invoice: Invoice) {
+    console.log(invoice)
   }
 }

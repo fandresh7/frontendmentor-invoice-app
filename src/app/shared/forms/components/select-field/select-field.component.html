@@ -13,7 +13,7 @@
     [checked]="control.control.value"
     type="text"
     [id]="control.control.name + (control.index ?? '')" />
-  {{ formControl.value }}
+  {{ getOptionLabel(formControl.value) }}
   <app-down-arrow-icon class="absolute top-1/2 -translate-y-1/2 right-4 text-theme-primary"></app-down-arrow-icon>
 </div>
 
@@ -39,7 +39,7 @@
     @for (option of getOptions() | async; track option) {
       <p
         class="heading-s py-4 cursor-pointer px-6 transition-colors duration-300 border-theme-light hover:text-theme-primary dark:border-theme-darker"
-        (click)="setControlValue(option.value)">
+        (click)="setControlValue(option)">
         {{ option.label }}
       </p>
     }

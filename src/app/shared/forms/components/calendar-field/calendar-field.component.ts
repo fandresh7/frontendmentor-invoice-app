@@ -4,11 +4,12 @@ import { OverlayModule } from '@angular/cdk/overlay'
 import { CalendarIconComponent } from '../../../components/icons.component'
 import { CalendarComponent } from '../../../components/calendar/calendar.component'
 import { BaseControlComponent, controlProvider, sharedControlDeps } from '../base-control/base-control.component'
+import { DatesFormatPipe } from '../../../../pipes/dates-format.pipe'
 
 @Component({
   selector: 'app-calendar-field',
   standalone: true,
-  imports: [OverlayModule, CalendarComponent, CalendarIconComponent, ...sharedControlDeps],
+  imports: [OverlayModule, CalendarComponent, CalendarIconComponent, DatesFormatPipe, ...sharedControlDeps],
   viewProviders: [controlProvider],
   templateUrl: './calendar-field.component.html',
   styleUrl: './calendar-field.component.css'
