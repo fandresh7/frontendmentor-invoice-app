@@ -1,11 +1,15 @@
 <div class="bg-white rounded-xl p-8 dark:bg-theme-background-dark">
-  <h1 class="heading-m text-theme-black dark:text-white">New Invoice</h1>
+  @if (data && data.invoice) {
+    <h1 class="heading-m text-theme-black dark:text-white">Edit {{ data.invoice.id }}</h1>
+  } @else {
+    <h1 class="heading-m text-theme-black dark:text-white">New Invoice</h1>
+  }
 
   <form
     class="invoce-form"
     autocomplete="off"
     [formGroup]="form"
-    (ngSubmit)="submit()">
+    (ngSubmit)="data && data.invoice ? edit() : submit()">
     <h1 class="bills_from heading-s-variant text-theme-primary mt-8">Bills From</h1>
     @for (control of billsFrom; track control.name) {
       <ng-container

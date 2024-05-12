@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { AsyncPipe, CurrencyPipe } from '@angular/common'
 import { Observable, switchMap } from 'rxjs'
 
@@ -39,6 +39,8 @@ import { Dialog } from '@angular/cdk/dialog'
 })
 export class InvoiceComponent implements OnInit {
   route = inject(ActivatedRoute)
+  router = inject(Router)
+
   invoicesService = inject(InvoicesService)
 
   invoice$!: Observable<Invoice | undefined>
@@ -62,10 +64,11 @@ export class InvoiceComponent implements OnInit {
   }
 
   delete(invoice: Invoice) {
-    console.log(invoice)
+    this.invoicesService.deleteInvoice(invoice.id)
+    this.router.navigate(['/'])
   }
 
   markAsPaid(invoice: Invoice) {
-    console.log(invoice)
+    this.invoicesService.markAsPaid(invoice.id)
   }
 }

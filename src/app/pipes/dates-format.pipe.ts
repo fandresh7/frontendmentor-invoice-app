@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core'
+import { months } from '../utils/invoices'
 
 @Pipe({
   name: 'datesFormat',
@@ -9,7 +10,6 @@ export class DatesFormatPipe implements PipeTransform {
     if (!value) return ''
 
     const [year, month, day] = value.split('-')
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     const monthIndex = parseInt(month) - 1
     const monthName = months[monthIndex]
 

@@ -25,7 +25,8 @@ export const billFromControls: Control[] = [
         type: 'text',
         order: 2,
         validators: {
-          required: true
+          required: true,
+          minLength: 3
         }
       },
       {
@@ -35,7 +36,8 @@ export const billFromControls: Control[] = [
         type: 'text',
         order: 3,
         validators: {
-          required: true
+          required: true,
+          min: 0
         }
       },
       {
@@ -45,7 +47,8 @@ export const billFromControls: Control[] = [
         type: 'text',
         order: 4,
         validators: {
-          required: true
+          required: true,
+          minLength: 3
         }
       }
     ]
@@ -60,7 +63,8 @@ export const billToControls: Control[] = [
     type: 'text',
     order: 1,
     validators: {
-      required: true
+      required: true,
+      minLength: 4
     }
   },
   {
@@ -70,7 +74,8 @@ export const billToControls: Control[] = [
     type: 'email',
     order: 2,
     validators: {
-      required: true
+      required: true,
+      email: true
     }
   },
   {
@@ -97,7 +102,8 @@ export const billToControls: Control[] = [
         type: 'text',
         order: 2,
         validators: {
-          required: true
+          required: true,
+          minLength: 3
         }
       },
       {
@@ -107,7 +113,8 @@ export const billToControls: Control[] = [
         type: 'text',
         order: 3,
         validators: {
-          required: true
+          required: true,
+          minLength: 3
         }
       },
       {
@@ -117,7 +124,8 @@ export const billToControls: Control[] = [
         type: 'text',
         order: 4,
         validators: {
-          required: true
+          required: true,
+          minLength: 3
         }
       }
     ]
@@ -153,7 +161,8 @@ export const billToControls: Control[] = [
     type: 'text',
     order: 9,
     validators: {
-      required: true
+      required: true,
+      minLength: 10
     }
   }
 ]
@@ -181,7 +190,8 @@ export const itemListControls: Control[] = [
         type: 'number',
         order: 2,
         validators: {
-          required: true
+          required: true,
+          min: 0
         }
       },
       {
@@ -191,7 +201,8 @@ export const itemListControls: Control[] = [
         type: 'number',
         order: 3,
         validators: {
-          required: true
+          required: true,
+          min: 0
         }
       }
     ],

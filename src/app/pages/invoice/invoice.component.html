@@ -10,7 +10,9 @@
       <div class="absolute top-full left-0 w-full bg-white p-6 flex flex-row justify-between flex-wrap sm:static sm:p-0 sm:justify-end sm:gap-4 dark:bg-theme-dark">
         <app-edit-button (clicked)="edit(invoice)">Edit</app-edit-button>
         <app-delete-button (clicked)="delete(invoice)">Delete</app-delete-button>
-        <app-default-button (clicked)="markAsPaid(invoice)">Mark as Paid</app-default-button>
+        @if (invoice.status !== 'paid') {
+          <app-default-button (clicked)="markAsPaid(invoice)">Mark as Paid</app-default-button>
+        }
       </div>
     </section>
 

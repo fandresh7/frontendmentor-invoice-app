@@ -1,7 +1,7 @@
 import { NgComponentOutlet, AsyncPipe, JsonPipe } from '@angular/common'
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Input, inject } from '@angular/core'
 import { FormArray, FormGroup, ReactiveFormsModule } from '@angular/forms'
-import { DIALOG_DATA } from '@angular/cdk/dialog'
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog'
 import { Subject, interval, takeUntil } from 'rxjs'
 
 import { ControlInjector } from '../../shared/forms/pipes/control-injector.pipe'
@@ -14,6 +14,7 @@ import { EditButtonComponent } from '../../shared/components/buttons/edit-button
 import { InvoicesService } from '../../services/invoices.service'
 import { billFromControls, billToControls, itemListControls } from './data'
 import { Invoice } from '../../models/invoice'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-invoce-form',
@@ -26,6 +27,7 @@ import { Invoice } from '../../models/invoice'
 export class InvoceFormComponent {
   @Input() invoiceId: string | null = null
 
+  router = inject(Router)
   invoicesService = inject(InvoicesService)
   cdr = inject(ChangeDetectorRef)
 
@@ -37,6 +39,7 @@ export class InvoceFormComponent {
 
   constructor(
     protected controlResolver: ControlResolver,
+    protected dialogRef: DialogRef,
     @Inject(DIALOG_DATA) public data: { invoice: Invoice }
   ) {
     if (this.data && this.data.invoice) {
@@ -103,13 +106,29 @@ export class InvoceFormComponent {
   }
 
   submit() {
-    console.log(this.form.value)
-    console.log(this.form.valid)
     if (this.form.invalid) return
+
+    this.invoicesService.saveInvoice(this.form.value).subscribe(invoice => {
+      this.form.reset()
+      this.dialogRef.close()
+      this.router.navigate(['invoice', invoice.id])
+    })
+  }
+
+  edit() {
+    if (this.form.invalid) return
+
+    const invoice = { ...this.data.invoice, ...this.form.value } as Invoice
+
+    this.invoicesService.editInvoice(invoice).subscribe(() => {
+      this.form.reset()
+      this.dialogRef.close()
+    })
   }
 
   discard() {
-    console.log('discard')
+    this.form.reset()
+    this.dialogRef.close()
   }
 
   saveAsDraft() {
