@@ -17,6 +17,7 @@ import { InvoceFormComponent } from '../../components/invoce-form/invoce-form.co
 import { DatesFormatPipe } from '../../pipes/dates-format.pipe'
 import { Invoice } from '../../models/invoice'
 import { Dialog } from '@angular/cdk/dialog'
+import { DeleteConfirmationModalComponent } from '../../components/delete-confirmation-modal/delete-confirmation-modal.component'
 
 @Component({
   selector: 'app-invoice',
@@ -64,8 +65,9 @@ export class InvoiceComponent implements OnInit {
   }
 
   delete(invoice: Invoice) {
-    this.invoicesService.deleteInvoice(invoice.id)
-    this.router.navigate(['/'])
+    this.dialog.open(DeleteConfirmationModalComponent, {
+      data: { invoice }
+    })
   }
 
   markAsPaid(invoice: Invoice) {

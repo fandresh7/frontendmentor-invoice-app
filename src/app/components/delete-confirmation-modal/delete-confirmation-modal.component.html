@@ -1,0 +1,8 @@
+<div class="flex flex-col gap-6 bg-white rounded-xl p-8 dark:bg-theme-background-dark">
+  <h2 class="heading-l text-theme-black dark:text-white">Confirm Deletion</h2>
+  <p class="body-variant text-theme-grey dark:text-theme-light">Are you sure you want to delete invoice {{ data.invoice.id }}? This action cannot be undone.</p>
+  <div class="w-full flex flex-row gap-4 items-center justify-end">
+    <app-edit-button (clicked)="cancel()">Cancel</app-edit-button>
+    <app-delete-button (clicked)="delete(data.invoice)"></app-delete-button>
+  </div>
+</div>
