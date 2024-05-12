@@ -1,4 +1,4 @@
-<label [for]="control.control.name + (control.index ?? '')">
+<label [for]="id">
   {{ control.control.label }}
 </label>
 <input
@@ -8,4 +8,4 @@
   [type]="control.control.type"
   [formControlName]="control.control.name"
   [checked]="control.control.value"
-  [id]="control.control.name + (control.index ?? '')" />
+  [id]="id" />

@@ -132,6 +132,12 @@ export class InvoceFormComponent {
   }
 
   saveAsDraft() {
-    console.log('save as draft')
+    if (this.form.invalid) return
+
+    this.invoicesService.saveAsDraft(this.form.value).subscribe(invoice => {
+      this.form.reset()
+      this.dialogRef.close()
+      this.router.navigate(['invoice', invoice.id])
+    })
   }
 }

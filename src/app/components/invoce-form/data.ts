@@ -2,12 +2,14 @@ import { Control } from '../../shared/forms/models/forms.model'
 
 export const billFromControls: Control[] = [
   {
+    id: 1,
     label: '',
     name: 'senderAddress',
     controlType: 'group',
     order: 1,
     controls: [
       {
+        id: 2,
         label: 'Street Address',
         name: 'street',
         controlType: 'input',
@@ -19,6 +21,7 @@ export const billFromControls: Control[] = [
         }
       },
       {
+        id: 3,
         label: 'City',
         name: 'city',
         controlType: 'input',
@@ -30,6 +33,7 @@ export const billFromControls: Control[] = [
         }
       },
       {
+        id: 4,
         label: 'Post Code',
         name: 'postCode',
         controlType: 'input',
@@ -41,6 +45,7 @@ export const billFromControls: Control[] = [
         }
       },
       {
+        id: 5,
         label: 'Country',
         name: 'country',
         controlType: 'input',
@@ -57,6 +62,7 @@ export const billFromControls: Control[] = [
 
 export const billToControls: Control[] = [
   {
+    id: 6,
     label: "Client's Name",
     name: 'clientName',
     controlType: 'input',
@@ -68,6 +74,7 @@ export const billToControls: Control[] = [
     }
   },
   {
+    id: 7,
     label: "Client's Email",
     name: 'clientEmail',
     controlType: 'input',
@@ -79,12 +86,14 @@ export const billToControls: Control[] = [
     }
   },
   {
+    id: 8,
     label: '',
     name: 'clientAddress',
     controlType: 'group',
     order: 1,
     controls: [
       {
+        id: 9,
         label: 'Street Address',
         name: 'street',
         controlType: 'input',
@@ -96,6 +105,7 @@ export const billToControls: Control[] = [
         }
       },
       {
+        id: 10,
         label: 'City',
         name: 'city',
         controlType: 'input',
@@ -107,6 +117,7 @@ export const billToControls: Control[] = [
         }
       },
       {
+        id: 11,
         label: 'Post Code',
         name: 'postCode',
         controlType: 'input',
@@ -118,6 +129,7 @@ export const billToControls: Control[] = [
         }
       },
       {
+        id: 12,
         label: 'Country',
         name: 'country',
         controlType: 'input',
@@ -131,6 +143,7 @@ export const billToControls: Control[] = [
     ]
   },
   {
+    id: 13,
     label: 'Invoce Date',
     name: 'paymentDue',
     controlType: 'calendar',
@@ -140,6 +153,7 @@ export const billToControls: Control[] = [
     }
   },
   {
+    id: 14,
     label: 'Payment Terms',
     name: 'paymentTerms',
     controlType: 'select',
@@ -155,6 +169,7 @@ export const billToControls: Control[] = [
     }
   },
   {
+    id: 15,
     label: 'Project Description',
     name: 'description',
     controlType: 'input',
@@ -169,11 +184,13 @@ export const billToControls: Control[] = [
 
 export const itemListControls: Control[] = [
   {
+    id: 16,
     label: '',
     name: 'items',
     controlType: 'items',
     controls: [
       {
+        id: 17,
         label: 'Item Name',
         name: 'name',
         controlType: 'input',
@@ -184,6 +201,7 @@ export const itemListControls: Control[] = [
         }
       },
       {
+        id: 18,
         label: 'Qty.',
         name: 'quantity',
         controlType: 'input',
@@ -195,6 +213,7 @@ export const itemListControls: Control[] = [
         }
       },
       {
+        id: 19,
         label: 'price',
         name: 'price',
         controlType: 'input',

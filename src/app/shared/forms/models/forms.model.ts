@@ -31,6 +31,7 @@ type CustomValidators = object
 type ValidatorsKeys = keyof Omit<typeof Validators & CustomValidators, 'prototype' | 'compose' | 'composeAsync'>
 
 export interface Control {
+  id: number
   label: string
   name: string
   controlType: ControlType

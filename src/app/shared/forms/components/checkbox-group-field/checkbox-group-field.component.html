@@ -15,8 +15,8 @@
         type="checkbox"
         (change)="change($event)"
         [value]="option.value"
-        [id]="control.control.name + index" />
-      <label [for]="control.control.name + index">
+        [id]="id + index" />
+      <label [for]="id + index">
         {{ option.label }}
       </label>
     </div>

@@ -1,4 +1,4 @@
-<label [for]="control.control.name + (control.index ?? '')">
+<label [for]="id">
   {{ control.control.label }}
 </label>
 
@@ -12,7 +12,7 @@
     [formControlName]="control.control.name"
     [checked]="control.control.value"
     type="text"
-    [id]="control.control.name + (control.index ?? '')" />
+    [id]="id" />
   {{ getOptionLabel(formControl.value) }}
   <app-down-arrow-icon class="absolute top-1/2 -translate-y-1/2 right-4 text-theme-primary"></app-down-arrow-icon>
 </div>

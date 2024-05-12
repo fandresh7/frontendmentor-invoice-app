@@ -11,7 +11,7 @@
       @for (control of control.control.controls; track control.name) {
         <ng-container
           [ngComponentOutlet]="controlResolver.resolve(control, parentFormGroup) | async"
-          [ngComponentOutletInjector]="control.name | controlInjector: control : group">
+          [ngComponentOutletInjector]="control.name | controlInjector: control : group : index">
         </ng-container>
       }
 

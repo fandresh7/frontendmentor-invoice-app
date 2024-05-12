@@ -24,6 +24,7 @@ export class BaseControlComponent implements OnInit, OnDestroy {
   control = inject(CONTROL_DATA)
 
   formControl: AbstractControl = new FormControl(this.control.control.value, this.resolveValidators(this.control.control))
+  id = this.control.control.name + this.control.control.id + (this.control.index ?? '')
 
   private parentGroupDir = inject(ControlContainer)
 
