@@ -35,12 +35,17 @@
     }
 
     <div class="buttons flex flex-row gap-4 justify-end">
-      <div class="grow">
+      @if (data && data.invoice) {
         <app-edit-button (clicked)="discard()">Discard</app-edit-button>
-      </div>
+        <app-default-button type="submit">Save Changes</app-default-button>
+      } @else {
+        <div class="grow">
+          <app-edit-button (clicked)="discard()">Discard</app-edit-button>
+        </div>
 
-      <app-save-button (clicked)="saveAsDraft()">Save as Draft</app-save-button>
-      <app-default-button type="submit">Save & Send</app-default-button>
+        <app-save-button (clicked)="saveAsDraft()">Save as Draft</app-save-button>
+        <app-default-button type="submit">Save & Send</app-default-button>
+      }
     </div>
   </form>
 </div>
