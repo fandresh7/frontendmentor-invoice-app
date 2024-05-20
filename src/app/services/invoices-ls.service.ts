@@ -1,17 +1,12 @@
-import { Injectable, inject } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
-
+import { Injectable } from '@angular/core'
 import { BehaviorSubject, map, of } from 'rxjs'
-
-import { Invoice, Item, Status } from '../models/invoice'
-import { generateId, getDate } from '../utils/invoices'
+import { Invoice, Status, Item } from '../models/invoice'
+import { getDate, generateId } from '../utils/invoices'
 
 @Injectable({
   providedIn: 'root'
 })
-export class InvoicesService {
-  http = inject(HttpClient)
-
+export class InvoicesLsService {
   constructor() {
     this.getInvoices()
   }
@@ -24,13 +19,16 @@ export class InvoicesService {
   }
 
   set invoices(invoices: Invoice[]) {
+    localStorage.setItem('invoices', JSON.stringify(invoices))
     this.invoicesSubject$.next(invoices)
   }
 
   getInvoices() {
-    return this.http.get<Invoice[]>('assets/data.json').subscribe(invoices => {
-      this.invoices = invoices
-    })
+    const localStorageData = localStorage.getItem('invoices')
+    if (!localStorageData) return
+
+    const invoices = JSON.parse(localStorageData) as Invoice[]
+    this.invoices = invoices
   }
 
   getInvoice(id: string) {
