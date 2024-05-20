@@ -44,7 +44,6 @@ export class InvoceFormComponent {
   ) {
     if (this.data && this.data.invoice) {
       const { id, createdAt, status, total, ...invoice } = this.data.invoice
-      console.log({ id, createdAt, status, total })
 
       this.setValuesInForm(invoice as Invoice)
     }
