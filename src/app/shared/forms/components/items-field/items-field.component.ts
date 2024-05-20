@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core'
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject } from '@angular/core'
 import { FormArray, FormGroup } from '@angular/forms'
 import { DecimalPipe } from '@angular/common'
 import { Subscription, tap } from 'rxjs'
@@ -18,6 +18,7 @@ import { AddButtonComponent } from '../../../components/buttons/add-button/add-b
 })
 export class ItemsFieldComponent extends BaseControlComponent implements OnInit, OnDestroy {
   controlResolver = inject(ControlResolver)
+  cdr = inject(ChangeDetectorRef)
 
   totalValues: number[] = []
   subscription!: Subscription
@@ -27,6 +28,8 @@ export class ItemsFieldComponent extends BaseControlComponent implements OnInit,
   override ngOnInit() {
     this.initialize()
     this.subscription = this.trackFormChanges().subscribe()
+
+    this.updateTotalValues()
   }
 
   override ngOnDestroy() {
@@ -51,6 +54,8 @@ export class ItemsFieldComponent extends BaseControlComponent implements OnInit,
       const price = Number(group['price']) || 0
       return quantity * price
     })
+
+    this.cdr.detectChanges()
   }
 
   trackFormChanges() {
