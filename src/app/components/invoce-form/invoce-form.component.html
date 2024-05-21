@@ -43,7 +43,11 @@
           <app-edit-button (clicked)="discard()">{{ 'BUTTONS.DISCARD' | translate }}</app-edit-button>
         </div>
 
-        <app-save-button (clicked)="saveAsDraft()">{{ 'BUTTONS.SAVE_AS_DRAFT' | translate }}</app-save-button>
+        <app-save-button
+          type="submit"
+          (clicked)="saveAsDraft()">
+          {{ 'BUTTONS.SAVE_AS_DRAFT' | translate }}
+        </app-save-button>
         <app-default-button type="submit">{{ 'BUTTONS.SAVE' | translate }}</app-default-button>
       }
     </div>
