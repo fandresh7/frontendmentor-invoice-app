@@ -1,4 +1,8 @@
 {
+  "LANG": {
+    "es": "Spanish",
+    "en": "English"
+  },
   "TITLE": "Invoices",
   "NO_INVOICES": "No Invoices",
   "ONE_INVOICE": "There is 1 total invoice",

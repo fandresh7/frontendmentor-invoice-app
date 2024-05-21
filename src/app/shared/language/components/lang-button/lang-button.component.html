@@ -1,0 +1,27 @@
+@if (code$ | async; as code) {
+  <button
+    cdkOverlayOrigin
+    #origin="cdkOverlayOrigin"
+    class="rounded-full w-7 h-7">
+    <img
+      [src]="getImageSrc(code)"
+      [alt]="getText(code)" />
+  </button>
+
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="origin"
+    [cdkConnectedOverlayOpen]="isOpen"
+    [cdkConnectedOverlayMinWidth]="150"
+    [cdkConnectedOverlayOffsetY]="12"
+    cdkConnectedOverlayPanelClass="box-shadow"
+    cdkConnectedOverlayHasBackdrop
+    cdkConnectedOverlayBackdropClass="backdrop-dropdown"
+    (backdropClick)="close()"
+    (detach)="close()">
+    <app-lang-dropdown
+      class="w-full"
+      (closeOverlay)="close()">
+    </app-lang-dropdown>
+  </ng-template>
+}

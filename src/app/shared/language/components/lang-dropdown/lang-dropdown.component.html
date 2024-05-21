@@ -1,0 +1,13 @@
+<div class="body-variant text-theme-grey dark:text-theme-light w-full p-2 bg-white dark:bg-theme-dark flex flex-col gap-2 items-left">
+  @for (code of languages; track code) {
+    <div
+      class="flex gap-2 items-center cursor-pointer p-2 transition-colors rounded-lg hover:bg-theme-background-light dark:hover:bg-theme-background-dark"
+      (click)="changeLang(code)">
+      <img
+        class="w-6 h-6"
+        [src]="getImageSrc(code)"
+        [alt]="getText(code)" />
+      <p>{{ getText(code) }}</p>
+    </div>
+  }
+</div>

@@ -3,7 +3,8 @@ import { TranslateService } from '@ngx-translate/core'
 
 @Pipe({
   name: 'invoicesAmount',
-  standalone: true
+  standalone: true,
+  pure: false
 })
 export class InvoicesAmountPipe implements PipeTransform {
   translateService = inject(TranslateService)
