@@ -159,10 +159,10 @@ export const billToControls = (translate: TranslateService): Control[] => [
     name: 'paymentTerms',
     controlType: 'select',
     options: [
-      { label: 'Net 1 Day', value: '1' },
-      { label: 'Net 7 Days', value: '7' },
-      { label: 'Net 14 Days', value: '14' },
-      { label: 'Net 30 Days', value: '30' }
+      { label: translate.instant('FORM.NET.1'), value: '1' },
+      { label: translate.instant('FORM.NET.7'), value: '7' },
+      { label: translate.instant('FORM.NET.14'), value: '14' },
+      { label: translate.instant('FORM.NET.30'), value: '30' }
     ],
     order: 8,
     validators: {

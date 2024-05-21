@@ -38,7 +38,13 @@
     "PRICE": "Price",
     "TOTAL": "Total",
     "ADD_NEW_ITEM": "Add New Item",
-    "EMPTY_ITEMS": "There is not items"
+    "EMPTY_ITEMS": "There is not items",
+    "NET": {
+      "1": "Net 1 Day", 
+      "7": "Net 7 Days", 
+      "14": "Net 14 Days", 
+      "30": "Net 30 Days"
+    }
   },
   "STATUS": {
     "STATUS": "Status",

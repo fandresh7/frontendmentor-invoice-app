@@ -38,7 +38,13 @@
     "PRICE": "Precio",
     "TOTAL": "Total",
     "ADD_NEW_ITEM": "Añadir Nuevo Artículo",
-    "EMPTY_ITEMS": "No hay artículos"
+    "EMPTY_ITEMS": "No hay artículos",
+    "NET": {
+      "1": "Neto 1 Día", 
+      "7": "Neto 7 Días", 
+      "14": "Neto 14 Días", 
+      "30": "Neto 30 Días"
+    }
   },
   "STATUS": {
     "STATUS": "Estado",
