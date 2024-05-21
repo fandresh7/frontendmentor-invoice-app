@@ -1,3 +1,77 @@
 {
-  "title": "Invoices"
+  "TITLE": "Invoices",
+  "NO_INVOICES": "No Invoices",
+  "ONE_INVOICE": "There is 1 total invoice",
+  "MULTIPLE_INVOICES": "There are {{value}} total invoices",
+  "GO_BACK": "Go Back",
+  "DUE": "Due",
+  "BUTTONS": {
+    "NEW_INVOICE": "New Invoice",
+    "EDIT": "Edit",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "SAVE_AS_DRAFT": "Save as Draft",
+    "SAVE_EDIT": "Save Changes",
+    "SAVE": "Save & Send",
+    "DISCARD": "Discard",
+    "MARK_AS_PAID": "Mark as Paid"
+  },
+  "FORM": {
+    "BILLS_FROM": "Bills From",
+    "BILLS_TO": "Bills To",
+    "ITEMS_LIST": "Items List",
+    "STREET_ADDRESS": "Street Address",
+    "CITY": "City",
+    "POST_CODE": "Post Code",
+    "COUNTRY": "Country",
+    "CLIENT_NAME": "Client's Name",
+    "CLIENT_EMAIL": "Client's Email",
+    "INVOICE_DATE": "Invoice Date",
+    "PAYMENT_TERMS": "Payment Terms",
+    "PROJECT_DESCRIPTION": "Project Description",
+    "ITEM_NAME": "Item Name",
+    "QUANTITY": "Qty.",
+    "PRICE": "Price",
+    "TOTAL": "Total",
+    "ADD_NEW_ITEM": "Add New Item",
+    "EMPTY_ITEMS": "There is not items"
+  },
+  "STATUS": {
+    "STATUS": "Status",
+    "PAID": "Paid",
+    "PENDING": "Pending",
+    "DRAFT": "Draft"
+  },
+  "DELETE_CONFIRMATION_TITLE": "Confirm Deletion",
+  "DELETE_CONFIRMATION_TEXT": "Are you sure you want to delete invoice {{value}}? This action cannot be undone.",
+  "EDIT": {
+    "INVOICE_DATE": "Invoice Date",
+    "BILL_TO": "Bill To",
+    "SENT_TO": "Sent to",
+    "PAYMENT_DUE": "Payment Due",
+    "ITEM_NAME": "Item Name",
+    "QUANTITY": "Qty.",
+    "PRICE": "Price",
+    "TOTAL": "Total",
+    "GRAND_TOTAL": "Grand Total"
+  },
+  "MONTHS": {
+    "0": "Jan",
+    "1": "Feb",
+    "2": "Mar",
+    "3": "Apr",
+    "4": "May",
+    "5": "Jun",
+    "6": "Jul",
+    "7": "Aug",
+    "8": "Sep",
+    "9": "Oct",
+    "10": "Nov",
+    "11": "Dec"
+  },
+  "EMPTY_INVOICE_TITLE": "There is nothing here",
+  "EMPTY_INVOICE_MESSAGE_START": "Create a new invoice by clicking the",
+  "EMPTY_INVOICE_MESSAGE_BUTTON": "New Invoice",
+  "EMPTY_INVOICE_MESSAGE_END": "button and get started"
 }
+

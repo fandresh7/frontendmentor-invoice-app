@@ -1,6 +1,7 @@
+import { TranslateService } from '@ngx-translate/core'
 import { Control } from '../../shared/forms/models/forms.model'
 
-export const billFromControls: Control[] = [
+export const billFromControls = (translate: TranslateService): Control[] => [
   {
     id: 1,
     label: '',
@@ -10,7 +11,7 @@ export const billFromControls: Control[] = [
     controls: [
       {
         id: 2,
-        label: 'Street Address',
+        label: translate.instant('FORM.STREET_ADDRESS'),
         name: 'street',
         controlType: 'input',
         type: 'text',
@@ -22,7 +23,7 @@ export const billFromControls: Control[] = [
       },
       {
         id: 3,
-        label: 'City',
+        label: translate.instant('FORM.CITY'),
         name: 'city',
         controlType: 'input',
         type: 'text',
@@ -34,7 +35,7 @@ export const billFromControls: Control[] = [
       },
       {
         id: 4,
-        label: 'Post Code',
+        label: translate.instant('FORM.POST_CODE'),
         name: 'postCode',
         controlType: 'input',
         type: 'text',
@@ -46,7 +47,7 @@ export const billFromControls: Control[] = [
       },
       {
         id: 5,
-        label: 'Country',
+        label: translate.instant('FORM.COUNTRY'),
         name: 'country',
         controlType: 'input',
         type: 'text',
@@ -60,10 +61,10 @@ export const billFromControls: Control[] = [
   }
 ]
 
-export const billToControls: Control[] = [
+export const billToControls = (translate: TranslateService): Control[] => [
   {
     id: 6,
-    label: "Client's Name",
+    label: translate.instant('FORM.CLIENT_NAME'),
     name: 'clientName',
     controlType: 'input',
     type: 'text',
@@ -75,7 +76,7 @@ export const billToControls: Control[] = [
   },
   {
     id: 7,
-    label: "Client's Email",
+    label: translate.instant('FORM.CLIENT_EMAIL'),
     name: 'clientEmail',
     controlType: 'input',
     type: 'email',
@@ -94,7 +95,7 @@ export const billToControls: Control[] = [
     controls: [
       {
         id: 9,
-        label: 'Street Address',
+        label: translate.instant('FORM.STREET_ADDRESS'),
         name: 'street',
         controlType: 'input',
         type: 'text',
@@ -106,7 +107,7 @@ export const billToControls: Control[] = [
       },
       {
         id: 10,
-        label: 'City',
+        label: translate.instant('FORM.CITY'),
         name: 'city',
         controlType: 'input',
         type: 'text',
@@ -118,7 +119,7 @@ export const billToControls: Control[] = [
       },
       {
         id: 11,
-        label: 'Post Code',
+        label: translate.instant('FORM.POST_CODE'),
         name: 'postCode',
         controlType: 'input',
         type: 'text',
@@ -130,7 +131,7 @@ export const billToControls: Control[] = [
       },
       {
         id: 12,
-        label: 'Country',
+        label: translate.instant('FORM.COUNTRY'),
         name: 'country',
         controlType: 'input',
         type: 'text',
@@ -144,7 +145,7 @@ export const billToControls: Control[] = [
   },
   {
     id: 13,
-    label: 'Invoce Date',
+    label: translate.instant('FORM.INVOICE_DATE'),
     name: 'paymentDue',
     controlType: 'calendar',
     order: 7,
@@ -154,7 +155,7 @@ export const billToControls: Control[] = [
   },
   {
     id: 14,
-    label: 'Payment Terms',
+    label: translate.instant('FORM.PAYMENT_TERMS'),
     name: 'paymentTerms',
     controlType: 'select',
     options: [
@@ -170,7 +171,7 @@ export const billToControls: Control[] = [
   },
   {
     id: 15,
-    label: 'Project Description',
+    label: translate.instant('FORM.PROJECT_DESCRIPTION'),
     name: 'description',
     controlType: 'input',
     type: 'text',
@@ -182,7 +183,7 @@ export const billToControls: Control[] = [
   }
 ]
 
-export const itemListControls: Control[] = [
+export const itemListControls = (translate: TranslateService): Control[] => [
   {
     id: 16,
     label: '',
@@ -191,7 +192,7 @@ export const itemListControls: Control[] = [
     controls: [
       {
         id: 17,
-        label: 'Item Name',
+        label: translate.instant('FORM.ITEM_NAME'),
         name: 'name',
         controlType: 'input',
         type: 'text',
@@ -202,7 +203,7 @@ export const itemListControls: Control[] = [
       },
       {
         id: 18,
-        label: 'Qty.',
+        label: translate.instant('FORM.QUANTITY'),
         name: 'quantity',
         controlType: 'input',
         type: 'number',
@@ -214,7 +215,7 @@ export const itemListControls: Control[] = [
       },
       {
         id: 19,
-        label: 'price',
+        label: translate.instant('FORM.PRICE'),
         name: 'price',
         controlType: 'input',
         type: 'number',

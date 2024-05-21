@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { AsyncPipe, CurrencyPipe } from '@angular/common'
 import { Observable, switchMap } from 'rxjs'
+import { TranslateModule } from '@ngx-translate/core'
 
 import { InvoicesService } from '../../services/invoices.service'
 
@@ -33,7 +34,8 @@ import { DeleteConfirmationModalComponent } from '../../components/delete-confir
     DatesFormatPipe,
     DatesFormatPipe,
     AsyncPipe,
-    CurrencyPipe
+    CurrencyPipe,
+    TranslateModule
   ],
   templateUrl: './invoice.component.html',
   styleUrl: './invoice.component.css'

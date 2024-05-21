@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core'
 import { AsyncPipe } from '@angular/common'
 import { Observable } from 'rxjs'
+import { TranslateModule } from '@ngx-translate/core'
 
 import { InvoicesService } from '../../services/invoices.service'
 import { Invoice } from '../../models/invoice'
@@ -16,7 +17,7 @@ import { InvoicesAmountPipe } from '../../pipes/invoices-amount.pipe'
 @Component({
   selector: 'app-invoices',
   standalone: true,
-  imports: [NewButtonComponent, InvoiceCardComponent, AsyncPipe, InvoicesAmountPipe, EmptyInvoiceComponent, ToggleDialogDirective, InvoceFormComponent],
+  imports: [NewButtonComponent, InvoiceCardComponent, AsyncPipe, InvoicesAmountPipe, EmptyInvoiceComponent, ToggleDialogDirective, InvoceFormComponent, TranslateModule],
   templateUrl: './invoices.component.html',
   styleUrl: './invoices.component.css'
 })

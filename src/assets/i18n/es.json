@@ -1,3 +1,76 @@
 {
-  "title": "Facturas"
+  "TITLE": "Facturas",
+  "NO_INVOICES": "No hay facturas",
+  "ONE_INVOICE": "Hay 1 factura en total",
+  "MULTIPLE_INVOICES": "Hay {{value}} facturas en total",
+  "GO_BACK": "Volver",
+  "DUE": "Vencimiento",
+  "BUTTONS": {
+    "NEW_INVOICE": "Nueva Factura",
+    "EDIT": "Editar",
+    "CANCEL": "Cancelar",
+    "DELETE": "Eliminar",
+    "SAVE_AS_DRAFT": "Guardar como Borrador",
+    "SAVE_EDIT": "Guardar Cambios",
+    "SAVE": "Guardar y Enviar",
+    "DISCARD": "Descartar",
+    "MARK_AS_PAID": "Marcar como Pagado"
+  },
+  "FORM": {
+    "BILLS_FROM": "Facturas De",
+    "BILLS_TO": "Facturas Para",
+    "ITEMS_LIST": "Lista de Artículos",
+    "STREET_ADDRESS": "Dirección",
+    "CITY": "Ciudad",
+    "POST_CODE": "Código Postal",
+    "COUNTRY": "País",
+    "CLIENT_NAME": "Nombre del Cliente",
+    "CLIENT_EMAIL": "Correo Electrónico del Cliente",
+    "INVOICE_DATE": "Fecha de la Factura",
+    "PAYMENT_TERMS": "Términos de Pago",
+    "PROJECT_DESCRIPTION": "Descripción del Proyecto",
+    "ITEM_NAME": "Nombre del Artículo",
+    "QUANTITY": "Cant.",
+    "PRICE": "Precio",
+    "TOTAL": "Total",
+    "ADD_NEW_ITEM": "Añadir Nuevo Artículo",
+    "EMPTY_ITEMS": "No hay artículos"
+  },
+  "STATUS": {
+    "STATUS": "Estado",
+    "PAID": "Pagado",
+    "PENDING": "Pendiente",
+    "DRAFT": "Borrador"
+  },
+  "DELETE_CONFIRMATION_TITLE": "Confirmar Eliminación",
+  "DELETE_CONFIRMATION_TEXT": "¿Estás seguro de que deseas eliminar la factura {{value}}? Esta acción no se puede deshacer.",
+  "EDIT": {
+    "INVOICE_DATE": "Fecha de la Factura",
+    "BILL_TO": "Facturar A",
+    "SENT_TO": "Enviado a",
+    "PAYMENT_DUE": "Fecha de Vencimiento",
+    "ITEM_NAME": "Nombre del Artículo",
+    "QUANTITY": "Cant.",
+    "PRICE": "Precio",
+    "TOTAL": "Total",
+    "GRAND_TOTAL": "Gran Total"
+  },
+  "MONTHS": {
+    "0": "Ene",
+    "1": "Feb",
+    "2": "Mar",
+    "3": "Abr",
+    "4": "May",
+    "5": "Jun",
+    "6": "Jul",
+    "7": "Ago",
+    "8": "Sep",
+    "9": "Oct",
+    "10": "Nov",
+    "11": "Dic"
+  },
+  "EMPTY_INVOICE_TITLE": "Aquí no hay nada",
+  "EMPTY_INVOICE_MESSAGE_START": "Cree una nueva factura haciendo clic en el botón",
+  "EMPTY_INVOICE_MESSAGE_BUTTON": "Nueva Factura",
+  "EMPTY_INVOICE_MESSAGE_END": "y comience"
 }

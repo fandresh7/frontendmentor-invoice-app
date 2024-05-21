@@ -16,7 +16,7 @@
       }
 
       <div class="flex flex-col">
-        <p class="body-variant text-theme-blue my-1 dark:text-theme-light">Total</p>
+        <p class="body-variant text-theme-blue my-1 dark:text-theme-light">{{ 'FORM.TOTAL' | translate }}</p>
         <div class="w-full flex items-center font-bold h-12 text-theme-grey dark:text-theme-light">{{ totalValues[index] | number: '1.2-2' }}</div>
       </div>
 
@@ -27,7 +27,7 @@
       </button>
     </div>
   } @empty {
-    <p class="text-theme-black dark:text-white">There is not items.</p>
+    <p class="text-theme-black dark:text-white">{{ 'FORM.EMPTY_ITEMS' | translate }}</p>
   }
 </fieldset>
 

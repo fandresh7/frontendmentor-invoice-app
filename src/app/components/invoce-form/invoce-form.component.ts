@@ -1,8 +1,9 @@
-import { NgComponentOutlet, AsyncPipe, JsonPipe } from '@angular/common'
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Input, inject } from '@angular/core'
+import { NgComponentOutlet, AsyncPipe } from '@angular/common'
 import { FormArray, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog'
 import { Subject, interval, takeUntil } from 'rxjs'
+import { TranslateModule, TranslateService } from '@ngx-translate/core'
 
 import { ControlInjector } from '../../shared/forms/pipes/control-injector.pipe'
 import { ControlResolver } from '../../shared/forms/services/control-resolver/control-resolver.service'
@@ -19,7 +20,7 @@ import { Router } from '@angular/router'
 @Component({
   selector: 'app-invoce-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgComponentOutlet, ControlInjector, AsyncPipe, DefaultButtonComponent, SaveButtonComponent, EditButtonComponent, JsonPipe],
+  imports: [ReactiveFormsModule, NgComponentOutlet, ControlInjector, AsyncPipe, DefaultButtonComponent, SaveButtonComponent, EditButtonComponent, TranslateModule],
   templateUrl: './invoce-form.component.html',
   styleUrl: './invoce-form.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -29,13 +30,14 @@ export class InvoceFormComponent {
 
   router = inject(Router)
   invoicesService = inject(InvoicesService)
+  translateService = inject(TranslateService)
   cdr = inject(ChangeDetectorRef)
 
   form = new FormGroup({})
 
-  billsFrom = billFromControls
-  billsTo = billToControls
-  itemList = itemListControls
+  billsFrom = billFromControls(this.translateService)
+  billsTo = billToControls(this.translateService)
+  itemList = itemListControls(this.translateService)
 
   constructor(
     protected controlResolver: ControlResolver,

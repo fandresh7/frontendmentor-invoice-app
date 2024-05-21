@@ -3,15 +3,15 @@
 <section class="flex flex-col gap-6">
   @if (invoice$ | async; as invoice) {
     <section class="flex items-center justify-between p-6 rounded-lg bg-white sm:gap-4 dark:bg-theme-dark">
-      <p class="text-theme-black dark:text-theme-light">Status</p>
+      <p class="text-theme-black dark:text-theme-light">{{ 'STATUS.STATUS' | translate }}</p>
 
       <app-invoce-status [status]="invoice.status"></app-invoce-status>
 
       <div class="absolute top-full left-0 w-full bg-white p-6 flex flex-row justify-between flex-wrap sm:static sm:p-0 sm:justify-end sm:gap-4 dark:bg-theme-dark">
-        <app-edit-button (clicked)="edit(invoice)">Edit</app-edit-button>
-        <app-delete-button (clicked)="delete(invoice)">Delete</app-delete-button>
+        <app-edit-button (clicked)="edit(invoice)">{{ 'BUTTONS.EDIT' | translate }}</app-edit-button>
+        <app-delete-button (clicked)="delete(invoice)">{{ 'BUTTONS.DELETE' | translate }}</app-delete-button>
         @if (invoice.status !== 'paid') {
-          <app-default-button (clicked)="markAsPaid(invoice)">Mark as Paid</app-default-button>
+          <app-default-button (clicked)="markAsPaid(invoice)">{{ 'BUTTONS.MARK_AS_PAID' | translate }}</app-default-button>
         }
       </div>
     </section>
@@ -33,17 +33,17 @@
       </div>
 
       <div class="w-5/12 flex flex-col gap-2 sm:w-1/4 sm:order-3">
-        <p>Invoice Date</p>
+        <p>{{ 'EDIT.INVOICE_DATE' | translate }}</p>
         <p class="heading-s text-theme-black dark:text-white">{{ invoice.createdAt | datesFormat }}</p>
       </div>
 
       <div class="w-5/12 flex flex-col gap-2 sm:w-1/4 sm:order-4">
-        <p>Bill To</p>
+        <p>{{ 'EDIT.BILL_TO' | translate }}</p>
         <p class="heading-s text-theme-black dark:text-white">{{ invoice.clientName }}</p>
       </div>
 
       <div class="w-5/12 flex flex-col gap-2 sm:w-1/4 sm:order-6">
-        <p>Payment Due</p>
+        <p>{{ 'EDIT.PAYMENT_DUE' | translate }}</p>
         <p class="heading-s text-theme-black dark:text-white">{{ invoice.paymentDue | datesFormat }}</p>
       </div>
 
@@ -55,19 +55,21 @@
       </div>
 
       <div class="w-full flex flex-col gap-2 sm:w-1/4 sm:order-5">
-        <p>Sent to</p>
+        <p>{{ 'EDIT.SENT_TO' | translate }}</p>
         <p class="heading-s text-theme-black dark:text-white">{{ invoice.clientEmail }}</p>
       </div>
 
       <section class="w-full sm:order-8">
         <app-invoice-table [items]="invoice.items"></app-invoice-table>
         <div class="text-white bg-theme-slate flex justify-between items-center p-6 rounded-b-lg dark:bg-theme-black">
-          <p class="body-variant">Grand Total</p>
+          <p class="body-variant">{{ 'EDIT.GRAND_TOTAL' | translate }}</p>
           <p class="heading-m">{{ invoice.total | currency: 'USD' : 'symbol' : '1.2-2' }}</p>
         </div>
       </section>
     </section>
   } @else {
-    <app-empty-invoice>Create a new invoice by clicking the <span class="font-bold">New Invoice</span> button and get started</app-empty-invoice>
+    <app-empty-invoice>
+      {{ 'EMPTY_INVOICE_MESSAGE_START' | translate }} <span class="font-bold">{{ 'EMPTY_INVOICE_MESSAGE_BUTTON' | translate }}</span> {{ 'EMPTY_INVOICE_MESSAGE_END' | translate }}
+    </app-empty-invoice>
   }
 </section>

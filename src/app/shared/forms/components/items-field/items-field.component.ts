@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject } from '@angula
 import { FormArray, FormGroup } from '@angular/forms'
 import { DecimalPipe } from '@angular/common'
 import { Subscription, tap } from 'rxjs'
+import { TranslateModule } from '@ngx-translate/core'
 
 import { BaseControlComponent, controlProvider, sharedControlDeps } from '../base-control/base-control.component'
 import { ControlResolver } from '../../services/control-resolver/control-resolver.service'
@@ -12,7 +13,7 @@ import { AddButtonComponent } from '../../../components/buttons/add-button/add-b
 @Component({
   selector: 'app-items-field',
   standalone: true,
-  imports: [...sharedControlDeps, ControlInjector, DeleteIconComponent, DecimalPipe, AddButtonComponent],
+  imports: [...sharedControlDeps, ControlInjector, DeleteIconComponent, DecimalPipe, AddButtonComponent, TranslateModule],
   viewProviders: [controlProvider],
   templateUrl: './items-field.component.html'
 })

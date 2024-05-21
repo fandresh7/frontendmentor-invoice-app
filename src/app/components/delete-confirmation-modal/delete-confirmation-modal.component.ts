@@ -1,6 +1,7 @@
 import { Component, Inject, inject } from '@angular/core'
 import { Router } from '@angular/router'
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog'
+import { TranslateModule } from '@ngx-translate/core'
 
 import { DeleteButtonComponent } from '../../shared/components/buttons/delete-button/delete-button.component'
 import { EditButtonComponent } from '../../shared/components/buttons/edit-button/edit-button.component'
@@ -11,7 +12,7 @@ import { Invoice } from '../../models/invoice'
 @Component({
   selector: 'app-delete-confirmation-modal',
   standalone: true,
-  imports: [DeleteButtonComponent, EditButtonComponent],
+  imports: [DeleteButtonComponent, EditButtonComponent, TranslateModule],
   templateUrl: './delete-confirmation-modal.component.html',
   styleUrl: './delete-confirmation-modal.component.css'
 })

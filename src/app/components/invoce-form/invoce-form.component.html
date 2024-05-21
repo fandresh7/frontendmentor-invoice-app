@@ -1,8 +1,8 @@
 <div class="bg-white rounded-xl p-8 dark:bg-theme-background-dark">
   @if (data && data.invoice) {
-    <h1 class="heading-m text-theme-black dark:text-white">Edit {{ data.invoice.id }}</h1>
+    <h1 class="heading-m text-theme-black dark:text-white">{{ 'BUTTONS.EDIT' | translate }} {{ data.invoice.id }}</h1>
   } @else {
-    <h1 class="heading-m text-theme-black dark:text-white">New Invoice</h1>
+    <h1 class="heading-m text-theme-black dark:text-white">{{ 'BUTTONS.NEW_INVOICE' | translate }}</h1>
   }
 
   <form
@@ -10,7 +10,7 @@
     autocomplete="off"
     [formGroup]="form"
     (ngSubmit)="data && data.invoice ? edit() : submit()">
-    <h1 class="bills_from heading-s-variant text-theme-primary mt-8">Bills From</h1>
+    <h1 class="bills_from heading-s-variant text-theme-primary mt-8">{{ 'FORM.BILLS_FROM' | translate }}</h1>
     @for (control of billsFrom; track control.name) {
       <ng-container
         [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
@@ -18,7 +18,7 @@
       </ng-container>
     }
 
-    <h1 class="bills_to heading-s-variant text-theme-primary mt-8">Bills To</h1>
+    <h1 class="bills_to heading-s-variant text-theme-primary mt-8">{{ 'FORM.BILLS_TO' | translate }}</h1>
     @for (control of billsTo; track control.name) {
       <ng-container
         [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
@@ -26,7 +26,7 @@
       </ng-container>
     }
 
-    <h1 class="items heading-s-variant text-theme-grey mt-8">Items List</h1>
+    <h1 class="items heading-s-variant text-theme-grey mt-8">{{ 'FORM.ITEMS_LIST' | translate }}</h1>
     @for (control of itemList; track control.name) {
       <ng-container
         [ngComponentOutlet]="controlResolver.resolve(control, form) | async"
@@ -36,15 +36,15 @@
 
     <div class="buttons flex flex-row gap-4 justify-end">
       @if (data && data.invoice) {
-        <app-edit-button (clicked)="discard()">Discard</app-edit-button>
-        <app-default-button type="submit">Save Changes</app-default-button>
+        <app-edit-button (clicked)="discard()">{{ 'BUTTONS.DISCARD' | translate }}</app-edit-button>
+        <app-default-button type="submit">{{ 'BUTTONS.SAVE_EDIT' | translate }}</app-default-button>
       } @else {
         <div class="grow">
-          <app-edit-button (clicked)="discard()">Discard</app-edit-button>
+          <app-edit-button (clicked)="discard()">{{ 'BUTTONS.DISCARD' | translate }}</app-edit-button>
         </div>
 
-        <app-save-button (clicked)="saveAsDraft()">Save as Draft</app-save-button>
-        <app-default-button type="submit">Save & Send</app-default-button>
+        <app-save-button (clicked)="saveAsDraft()">{{ 'BUTTONS.SAVE_AS_DRAFT' | translate }}</app-save-button>
+        <app-default-button type="submit">{{ 'BUTTONS.SAVE' | translate }}</app-default-button>
       }
     </div>
   </form>

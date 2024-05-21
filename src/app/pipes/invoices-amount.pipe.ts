@@ -1,19 +1,22 @@
-import { Pipe, PipeTransform } from '@angular/core'
+import { Pipe, PipeTransform, inject } from '@angular/core'
+import { TranslateService } from '@ngx-translate/core'
 
 @Pipe({
   name: 'invoicesAmount',
   standalone: true
 })
 export class InvoicesAmountPipe implements PipeTransform {
+  translateService = inject(TranslateService)
+
   transform(value: number): string {
     if (value === 0) {
-      return 'No Invoices'
+      return this.translateService.instant('NO_INVOICES')
     }
 
     if (value === 1) {
-      return `There is 1 total invoice`
+      return this.translateService.instant('ONE_INVOICE')
     }
 
-    return `There are ${value} total invoices`
+    return this.translateService.instant('MULTIPLE_INVOICES', { value })
   }
 }
