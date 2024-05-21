@@ -53,7 +53,7 @@ export class InvoicesLsService {
     updatedInvoice.status = 'paid'
 
     updatedInvoices[index] = updatedInvoice
-    this.invoices = invoices
+    this.invoices = updatedInvoices
 
     return of(updatedInvoice)
   }
@@ -109,7 +109,7 @@ export class InvoicesLsService {
 
     updatedInvoices[index] = invoice
 
-    this.invoices = invoices
+    this.invoices = updatedInvoices
 
     return of(invoice)
   }
@@ -118,7 +118,7 @@ export class InvoicesLsService {
     const invoices = this.invoicesSubject$.getValue()
 
     const updatedInvoices = invoices.filter(invoice => invoice.id !== invoiceId)
-    this.invoices = invoices
+    this.invoices = updatedInvoices
 
     return of(updatedInvoices)
   }
