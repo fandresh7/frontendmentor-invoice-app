@@ -3,7 +3,8 @@ import { TranslateService } from '@ngx-translate/core'
 
 @Pipe({
   name: 'datesFormat',
-  standalone: true
+  standalone: true,
+  pure: false
 })
 export class DatesFormatPipe implements PipeTransform {
   translateService = inject(TranslateService)

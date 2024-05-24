@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Input, inject } from '@angular/core'
 import { NgComponentOutlet, AsyncPipe } from '@angular/common'
+import { Router } from '@angular/router'
 import { FormArray, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog'
 import { Subject, interval, takeUntil } from 'rxjs'
@@ -11,16 +12,16 @@ import { ControlResolver } from '../../shared/forms/services/control-resolver/co
 import { DefaultButtonComponent } from '../../shared/components/buttons/default-button/default-button.component'
 import { SaveButtonComponent } from '../../shared/components/buttons/save-button/save-button.component'
 import { EditButtonComponent } from '../../shared/components/buttons/edit-button/edit-button.component'
+import { CloseIconComponent } from '../../shared/components/icons.component'
 
 import { InvoicesService } from '../../services/invoices.service'
 import { billFromControls, billToControls, itemListControls } from './data'
 import { Invoice } from '../../models/invoice'
-import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-invoce-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgComponentOutlet, ControlInjector, AsyncPipe, DefaultButtonComponent, SaveButtonComponent, EditButtonComponent, TranslateModule],
+  imports: [ReactiveFormsModule, NgComponentOutlet, ControlInjector, AsyncPipe, DefaultButtonComponent, SaveButtonComponent, EditButtonComponent, TranslateModule, CloseIconComponent],
   templateUrl: './invoce-form.component.html',
   styleUrl: './invoce-form.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -110,8 +111,7 @@ export class InvoceFormComponent {
     if (this.form.invalid) return
 
     this.invoicesService.saveInvoice(this.form.value).subscribe(invoice => {
-      this.form.reset()
-      this.dialogRef.close()
+      this.closeDialog()
       this.router.navigate(['invoice', invoice.id])
     })
   }
@@ -122,23 +122,25 @@ export class InvoceFormComponent {
     const invoice = { ...this.data.invoice, ...this.form.value } as Invoice
 
     this.invoicesService.editInvoice(invoice).subscribe(() => {
-      this.form.reset()
-      this.dialogRef.close()
+      this.closeDialog()
     })
   }
 
   discard() {
-    this.form.reset()
-    this.dialogRef.close()
+    this.closeDialog()
   }
 
   saveAsDraft() {
     if (this.form.invalid) return
 
     this.invoicesService.saveAsDraft(this.form.value).subscribe(invoice => {
-      this.form.reset()
-      this.dialogRef.close()
+      this.closeDialog()
       this.router.navigate(['invoice', invoice.id])
     })
+  }
+
+  closeDialog() {
+    this.form.reset()
+    this.dialogRef.close()
   }
 }

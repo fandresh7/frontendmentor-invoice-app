@@ -8,11 +8,13 @@
     <app-new-button
       appToggleDialog
       [appDialogComponent]="InvoceFormComponent">
-      {{ 'BUTTONS.NEW_INVOICE' | translate }}
+      <span class="hidden sm:block">
+        {{ 'BUTTONS.NEW_INVOICE' | translate }}
+      </span>
     </app-new-button>
   </section>
 
-  <section class="flex flex-col gap-6 mt-10">
+  <section class="flex flex-col gap-6 mt-10 pb-10">
     @for (invoice of invoices; track invoice.id) {
       <app-invoice-card [invoice]="invoice"></app-invoice-card>
     } @empty {

@@ -1,6 +1,8 @@
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterOutlet } from '@angular/router'
+
+import { ScrollService } from './shared/services/scroll-service.service'
 
 @Component({
   selector: 'app-root',
@@ -9,4 +11,6 @@ import { RouterOutlet } from '@angular/router'
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {}
+export class AppComponent {
+  scrollService = inject(ScrollService)
+}

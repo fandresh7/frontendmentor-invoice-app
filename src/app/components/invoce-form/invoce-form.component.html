@@ -1,9 +1,16 @@
 <div class="bg-white rounded-xl p-8 dark:bg-theme-background-dark">
-  @if (data && data.invoice) {
-    <h1 class="heading-m text-theme-black dark:text-white">{{ 'BUTTONS.EDIT' | translate }} {{ data.invoice.id }}</h1>
-  } @else {
-    <h1 class="heading-m text-theme-black dark:text-white">{{ 'BUTTONS.NEW_INVOICE' | translate }}</h1>
-  }
+  <div class="flex flex-row justify-between items-center">
+    @if (data && data.invoice) {
+      <h1 class="heading-m text-theme-black dark:text-white">{{ 'BUTTONS.EDIT' | translate }} {{ data.invoice.id }}</h1>
+    } @else {
+      <h1 class="heading-m text-theme-black dark:text-white">{{ 'BUTTONS.NEW_INVOICE' | translate }}</h1>
+    }
+
+    <app-close-icon
+      (click)="closeDialog()"
+      class="cursor-pointer text-theme-grey hover:text-theme-slate transition-colors dark:text-theme-grey dark:hover:text-theme-light">
+    </app-close-icon>
+  </div>
 
   <form
     class="invoce-form"
