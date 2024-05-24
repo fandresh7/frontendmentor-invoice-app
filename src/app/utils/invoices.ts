@@ -1,3 +1,5 @@
+import { Invoice, Item } from '../models/invoice'
+
 export const getDate = (date: Date) => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -20,4 +22,13 @@ export const generateId = () => {
   const number = randomNumber.toString().padStart(4, '0')
 
   return `${letter1}${letter2}${number}`
+}
+
+export const getItemsWithTotals = (invoice: Partial<Invoice>) => {
+  const items = invoice.items?.map(item => {
+    const total = item.quantity * item.price
+    return { ...item, total }
+  }) as Item[]
+
+  return items
 }

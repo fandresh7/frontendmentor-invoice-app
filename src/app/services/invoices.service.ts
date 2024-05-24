@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http'
 
 import { BehaviorSubject, map, of, switchMap, tap } from 'rxjs'
 
-import { Invoice, Item, Status } from '../models/invoice'
-import { generateId, getDate } from '../utils/invoices'
+import { Invoice, Status } from '../models/invoice'
+import { generateId, getDate, getItemsWithTotals } from '../utils/invoices'
 import { getInvoicesFromLocalStorage, saveInLocalStorage } from '../utils/localStorage'
 
 @Injectable({
@@ -105,13 +105,10 @@ export class InvoicesService {
     const status: Status = 'pending'
     const id = generateId()
 
-    invoice.items = invoice.items?.map(item => {
-      const total = item.quantity * item.price
-      return { ...item, total }
-    }) as Item[]
+    const items = getItemsWithTotals(invoice)
+    const total = items.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0) ?? 0
 
-    const total = invoice.items.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0) ?? 0
-    const newInvoice = { id, status, createdAt, total, ...invoice } as Invoice
+    const newInvoice = { ...invoice, id, status, createdAt, total, items } as Invoice
 
     invoices.push(newInvoice)
     this.invoices = invoices
@@ -127,13 +124,10 @@ export class InvoicesService {
     const createdAt = getDate(new Date(Date.now()))
     const status: Status = 'draft'
 
-    invoice.items = invoice.items?.map(item => {
-      const total = item.quantity * item.price
-      return { ...item, total }
-    }) as Item[]
+    const items = getItemsWithTotals(invoice)
+    const total = items.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0) ?? 0
 
-    const total = invoice.items.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0) ?? 0
-    const newInvoice = { id, status, createdAt, total, ...invoice } as Invoice
+    const newInvoice = { ...invoice, id, status, createdAt, total, items } as Invoice
 
     invoices.push(newInvoice)
     this.invoices = invoices
@@ -149,7 +143,11 @@ export class InvoicesService {
 
     const index = invoices.findIndex(i => i.id === invoice.id)
 
-    updatedInvoices[index] = invoice
+    const items = getItemsWithTotals(invoice)
+    const total = items.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0) ?? 0
+
+    const newInvoice = { ...invoice, total, items } as Invoice
+    updatedInvoices[index] = newInvoice
 
     this.invoices = updatedInvoices
 
