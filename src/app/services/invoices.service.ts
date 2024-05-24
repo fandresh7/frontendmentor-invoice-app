@@ -5,6 +5,7 @@ import { BehaviorSubject, map, of, switchMap, tap } from 'rxjs'
 
 import { Invoice, Item, Status } from '../models/invoice'
 import { generateId, getDate } from '../utils/invoices'
+import { getInvoicesFromLocalStorage, saveInLocalStorage } from '../utils/localStorage'
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,7 @@ export class InvoicesService {
   http = inject(HttpClient)
 
   constructor() {
-    this.getInvoices().subscribe(invoices => {
-      this.invoices = invoices
-    })
+    this.getInvoices().subscribe()
   }
 
   invoicesSubject$ = new BehaviorSubject<Invoice[]>([])
@@ -40,26 +39,33 @@ export class InvoicesService {
     this.statusSubject$.next(status)
   }
 
-  loadInvoices() {
-    const ls = localStorage.getItem('invoices')
-    if (ls) {
-      const data = JSON.parse(ls) as Invoice[]
-      return of(data)
+  getFilteredInvoices(invoices: Invoice[], status?: Status | null) {
+    if (!status) return invoices
+    return invoices.filter(invoice => invoice.status === status)
+  }
+
+  loadInvoices(status?: Status | null) {
+    const invoicesFromLS = getInvoicesFromLocalStorage()
+    if (invoicesFromLS.length > 0) {
+      const invoices = this.getFilteredInvoices(invoicesFromLS, status)
+      return of(invoices)
     }
 
-    return this.http.get<Invoice[]>('assets/data.json').pipe(tap(this.saveInLocalStorage))
+    return this.http.get<Invoice[]>('assets/data.json').pipe(
+      map(invoices => {
+        return this.getFilteredInvoices(invoices, status)
+      }),
+      tap(invoices => saveInLocalStorage(invoices))
+    )
   }
 
   getInvoices() {
     return this.status$.pipe(
       switchMap(status => {
-        return this.loadInvoices().pipe(
-          map(invoices => {
-            if (!status) return invoices
-
-            return invoices.filter(invoice => invoice.status === status)
-          })
-        )
+        return this.loadInvoices(status)
+      }),
+      tap(invoices => {
+        this.invoices = invoices
       })
     )
   }
@@ -88,7 +94,7 @@ export class InvoicesService {
     updatedInvoices[index] = updatedInvoice
     this.invoices = updatedInvoices
 
-    this.saveInLocalStorage(updatedInvoices)
+    saveInLocalStorage(updatedInvoices)
     return of(updatedInvoice)
   }
 
@@ -110,7 +116,7 @@ export class InvoicesService {
     invoices.push(newInvoice)
     this.invoices = invoices
 
-    this.saveInLocalStorage(invoices)
+    saveInLocalStorage(invoices)
     return of(newInvoice)
   }
 
@@ -132,7 +138,7 @@ export class InvoicesService {
     invoices.push(newInvoice)
     this.invoices = invoices
 
-    this.saveInLocalStorage(invoices)
+    saveInLocalStorage(invoices)
     return of(newInvoice)
   }
 
@@ -147,7 +153,7 @@ export class InvoicesService {
 
     this.invoices = updatedInvoices
 
-    this.saveInLocalStorage(updatedInvoices)
+    saveInLocalStorage(updatedInvoices)
     return of(invoice)
   }
 
@@ -157,11 +163,7 @@ export class InvoicesService {
     const updatedInvoices = invoices.filter(invoice => invoice.id !== invoiceId)
     this.invoices = updatedInvoices
 
-    this.saveInLocalStorage(updatedInvoices)
+    saveInLocalStorage(updatedInvoices)
     return of(updatedInvoices)
-  }
-
-  saveInLocalStorage(invoices: Invoice[]) {
-    localStorage.setItem('invoices', JSON.stringify(invoices))
   }
 }

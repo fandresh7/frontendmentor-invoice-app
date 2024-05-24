@@ -1,5 +1,3 @@
-export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
 export const getDate = (date: Date) => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1

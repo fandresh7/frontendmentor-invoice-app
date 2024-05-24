@@ -5,8 +5,8 @@
   },
   "TITLE": "Invoices",
   "NO_INVOICES": "No Invoices",
-  "ONE_INVOICE": "There is 1 total invoice",
-  "MULTIPLE_INVOICES": "There are {{value}} total invoices",
+  "ONE_INVOICE": "There is 1 {{status}} invoice",
+  "MULTIPLE_INVOICES": "There are {{value}} {{status}} invoices",
   "GO_BACK": "Go Back",
   "DUE": "Due",
   "BUTTONS": {

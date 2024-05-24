@@ -5,8 +5,8 @@
   },
   "TITLE": "Facturas",
   "NO_INVOICES": "No hay facturas",
-  "ONE_INVOICE": "Hay 1 factura en total",
-  "MULTIPLE_INVOICES": "Hay {{value}} facturas en total",
+  "ONE_INVOICE": "Hay 1 factura {{status}}",
+  "MULTIPLE_INVOICES": "Hay {{value}} facturas {{status}}",
   "GO_BACK": "Volver",
   "DUE": "Vencimiento",
   "BUTTONS": {
