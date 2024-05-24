@@ -1,6 +1,6 @@
 <app-breadcrumb [link]="['/']"></app-breadcrumb>
 
-<section class="flex flex-col gap-6">
+<section class="animate-fade-in flex flex-col gap-6">
   @if (invoice$ | async; as invoice) {
     <section class="flex items-center justify-between p-6 rounded-lg bg-white sm:gap-4 dark:bg-theme-dark">
       <p class="text-theme-black dark:text-theme-light">{{ 'STATUS.STATUS' | translate }}</p>

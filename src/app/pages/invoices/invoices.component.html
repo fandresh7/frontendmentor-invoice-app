@@ -1,11 +1,12 @@
 @if (invoices$ | async; as invoices) {
   <section class="flex flex-row justify-between items-center">
-    <div>
+    <div class="animate-slide-in-top">
       <h1 class="heading-l text-black dark:text-white">{{ 'TITLE' | translate }}</h1>
       <p class="body-variant text-theme-grey dark:text-theme-light">{{ invoices.length | invoicesAmount }}</p>
     </div>
 
     <app-new-button
+      class="animate-slide-in-top"
       appToggleDialog
       [appDialogComponent]="InvoceFormComponent">
       <span class="hidden sm:block">
@@ -16,7 +17,10 @@
 
   <section class="flex flex-col gap-6 mt-10 pb-10">
     @for (invoice of invoices; track invoice.id) {
-      <app-invoice-card [invoice]="invoice"></app-invoice-card>
+      <app-invoice-card
+        class="animate-fade-in"
+        [invoice]="invoice">
+      </app-invoice-card>
     } @empty {
       <app-empty-invoice>
         {{ 'EMPTY_INVOICE_MESSAGE_START' | translate }} <span class="font-bold">{{ 'EMPTY_INVOICE_MESSAGE_BUTTON' | translate }}</span> {{ 'EMPTY_INVOICE_MESSAGE_END' | translate }}
