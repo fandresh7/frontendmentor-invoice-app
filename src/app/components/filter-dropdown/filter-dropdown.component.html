@@ -1,0 +1,26 @@
+<div
+  class="cursor-pointer flex items-center gap-2 text-theme-primary"
+  cdkOverlayOrigin
+  #origin="cdkOverlayOrigin">
+  <p class="heading-s text-theme-black dark:text-white">{{ 'FILTER' | translate }}</p>
+  <app-down-arrow-icon
+    class="transition-transform duration-100"
+    [ngClass]="{ 'rotate-180': isOpen }">
+  </app-down-arrow-icon>
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="origin"
+  [cdkConnectedOverlayOpen]="isOpen"
+  [cdkConnectedOverlayOffsetY]="12"
+  cdkConnectedOverlayPanelClass="box-shadow"
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="backdrop-dropdown"
+  (backdropClick)="close()"
+  (detach)="close()">
+  <app-filter-form
+    class="block w-full"
+    (closeEmmiter)="close()">
+  </app-filter-form>
+</ng-template>

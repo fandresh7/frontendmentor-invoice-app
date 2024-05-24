@@ -46,11 +46,13 @@
       "30": "Net 30 Days"
     }
   },
+  "FILTER": "Filter by status",
   "STATUS": {
     "STATUS": "Status",
     "PAID": "Paid",
     "PENDING": "Pending",
-    "DRAFT": "Draft"
+    "DRAFT": "Draft",
+    "ALL": "All"
   },
   "DELETE_CONFIRMATION_TITLE": "Confirm Deletion",
   "DELETE_CONFIRMATION_TEXT": "Are you sure you want to delete invoice {{value}}? This action cannot be undone.",

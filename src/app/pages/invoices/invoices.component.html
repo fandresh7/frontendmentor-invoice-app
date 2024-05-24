@@ -5,14 +5,17 @@
       <p class="body-variant text-theme-grey dark:text-theme-light">{{ invoices.length | invoicesAmount }}</p>
     </div>
 
-    <app-new-button
-      class="animate-slide-in-top"
-      appToggleDialog
-      [appDialogComponent]="InvoceFormComponent">
-      <span class="hidden sm:block">
-        {{ 'BUTTONS.NEW_INVOICE' | translate }}
-      </span>
-    </app-new-button>
+    <div class="flex gap-4 items-center animate-slide-in-top">
+      <app-filter-dropdown></app-filter-dropdown>
+
+      <app-new-button
+        appToggleDialog
+        [appDialogComponent]="InvoceFormComponent">
+        <span class="hidden sm:block">
+          {{ 'BUTTONS.NEW_INVOICE' | translate }}
+        </span>
+      </app-new-button>
+    </div>
   </section>
 
   <section class="flex flex-col gap-6 mt-10 pb-10">

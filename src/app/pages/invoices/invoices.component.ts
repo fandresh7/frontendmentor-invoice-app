@@ -10,6 +10,7 @@ import { NewButtonComponent } from '../../shared/components/buttons/new-button/n
 import { InvoiceCardComponent } from '../../components/invoice-card/invoice-card.component'
 import { EmptyInvoiceComponent } from '../../components/empty-invoice/empty-invoice.component'
 import { InvoceFormComponent } from '../../components/invoce-form/invoce-form.component'
+import { FilterDropdownComponent } from '../../components/filter-dropdown/filter-dropdown.component'
 
 import { ToggleDialogDirective } from '../../shared/directives/toggle-dialog/toggle-dialog.directive'
 import { InvoicesAmountPipe } from '../../pipes/invoices-amount.pipe'
@@ -17,7 +18,7 @@ import { InvoicesAmountPipe } from '../../pipes/invoices-amount.pipe'
 @Component({
   selector: 'app-invoices',
   standalone: true,
-  imports: [NewButtonComponent, InvoiceCardComponent, AsyncPipe, InvoicesAmountPipe, EmptyInvoiceComponent, ToggleDialogDirective, InvoceFormComponent, TranslateModule],
+  imports: [NewButtonComponent, InvoiceCardComponent, AsyncPipe, InvoicesAmountPipe, EmptyInvoiceComponent, ToggleDialogDirective, InvoceFormComponent, FilterDropdownComponent, TranslateModule],
   templateUrl: './invoices.component.html',
   styleUrl: './invoices.component.css'
 })

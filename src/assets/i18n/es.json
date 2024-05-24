@@ -46,11 +46,13 @@
       "30": "Neto 30 Días"
     }
   },
+  "FILTER": "Filtar por estado",
   "STATUS": {
     "STATUS": "Estado",
     "PAID": "Pagado",
     "PENDING": "Pendiente",
-    "DRAFT": "Borrador"
+    "DRAFT": "Borrador",
+    "ALL": "Todos"
   },
   "DELETE_CONFIRMATION_TITLE": "Confirmar Eliminación",
   "DELETE_CONFIRMATION_TEXT": "¿Estás seguro de que deseas eliminar la factura {{value}}? Esta acción no se puede deshacer.",
