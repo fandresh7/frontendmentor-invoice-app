@@ -11,8 +11,15 @@ export class InvoicesAmountPipe implements PipeTransform {
   translateService = inject(TranslateService)
   invoicesService = inject(InvoicesService)
 
+  getStatus() {
+    const status = this.invoicesService.status
+    if (!status) return ''
+
+    return this.translateService.instant(`STATUS.${this.invoicesService.status?.toUpperCase()}`)
+  }
+
   transform(value: number): string {
-    const status = this.invoicesService.status ?? ''
+    const status = this.getStatus()
 
     if (value === 0) {
       return this.translateService.instant('NO_INVOICES')
