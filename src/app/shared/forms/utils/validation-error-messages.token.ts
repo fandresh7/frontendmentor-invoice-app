@@ -14,3 +14,17 @@ export const VALIDATION_ERROR_MESSAGES = new InjectionToken(`Validation Messages
   providedIn: 'root',
   factory: () => ERROR_MESSAGES
 })
+
+export const ERROR_MESSAGES_ES: { [key: string]: (args?: any) => string } = {
+  required: () => `Este campo es obligatorio`,
+  requiredTrue: () => `Este campo es obligatorio`,
+  pattern: () => `No coincide con el patrón`,
+  email: () => `Debe ser un correo electrónico válido`,
+  minlength: ({ requiredLength }) => `La longitud debe ser al menos de ${requiredLength} caracteres`,
+  customError: error => error
+}
+
+export const VALIDATION_ERROR_MESSAGES_ES = new InjectionToken(`Validation Messages`, {
+  providedIn: 'root',
+  factory: () => ERROR_MESSAGES_ES
+})

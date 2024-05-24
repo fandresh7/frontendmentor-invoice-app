@@ -18,10 +18,23 @@ import { InvoicesService } from '../../services/invoices.service'
 import { billFromControls, billToControls, itemListControls } from './data'
 import { Invoice } from '../../models/invoice'
 
+import { LanguageService } from '../../shared/language/language.service'
+import { ERROR_MESSAGES, ERROR_MESSAGES_ES, VALIDATION_ERROR_MESSAGES } from '../../shared/forms/utils/validation-error-messages.token'
+
+const validationMessagesProvider = {
+  provide: VALIDATION_ERROR_MESSAGES,
+  useFactory: (languageService: LanguageService) => {
+    const lang = languageService.code
+    return lang === 'en' ? ERROR_MESSAGES : ERROR_MESSAGES_ES
+  },
+  deps: [LanguageService]
+}
+
 @Component({
   selector: 'app-invoce-form',
   standalone: true,
   imports: [ReactiveFormsModule, NgComponentOutlet, ControlInjector, AsyncPipe, DefaultButtonComponent, SaveButtonComponent, EditButtonComponent, TranslateModule, CloseIconComponent],
+  providers: [validationMessagesProvider],
   templateUrl: './invoce-form.component.html',
   styleUrl: './invoce-form.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
